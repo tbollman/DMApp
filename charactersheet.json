@@ -1,0 +1,49 @@
+{
+  "Username" : "user123",
+  "Character Name" : "Quintus Metellus",
+  "Character Race" : "Human",
+  "Character Class" : "Fighter",
+  "Background" : "City Watch",
+  "Armor Class" : "10",
+  "Initiative" : "0",
+  "Speed" : "30",
+
+  "Hit Die" : "1d10",
+  "Hit Points" : "10",
+
+  "Strength Score" : "10",
+  "Dexterity Score" : "10",
+  "Constitution Score" : "10",
+  "Intelligence Score" : "10",
+  "Wisdom Score" : "10",
+  "Charisma Score" : "10",
+
+  "Proficiency Bonus" : "2",
+
+  "Athletics" : "0",
+  "Acrobatics" : "0",
+  "Sleight of Hand" : "0",
+  "Stealth" : "0",
+  "Arcana" : "0",
+  "History" : "0",
+  "Investigation" : "0",
+  "Nature" : "0",
+  "Religion" : "0",
+  "Insight" : "0",
+  "Medicine" : "0",
+  "Perception" : "0",
+  "Survival" : "0",
+  "Deception" : "0",
+  "Intimidation" : "0",
+  "Performance" : "0",
+  "Persuasion" : "0",
+
+  "Languages" : ["Common", "Elvish"],
+  "Features" : ["Dark Vision","Stone Cunning"],
+
+  "Weapons" : ["Sword","Dagger","Bow"],
+  "Armor" : ["Chain Shirt","Shield"],
+  "Potions" : ["Potion of Healing", "Potion of Invisibility"],
+  "Supplies" : ["Candle","Rations","Bell","Bedroll"],
+  "Spells" : ["Cure Wounds","Acid Splash","Invisibility","Magic Missile"]
+}
