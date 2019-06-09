@@ -19,6 +19,33 @@ public class CharacterSheet {
     private Ability wisdom = new Ability();
     private Ability charisma = new Ability();
 
+    private Skill strSave = new Skill("Strength Save", "STR");
+    private Skill dexSave = new Skill("Dexterity Save", "DEX");
+    private Skill conSave = new Skill("Constitution Save", "CON");
+    private Skill intSave = new Skill("Intelligence Save", "INT");
+    private Skill wisSave = new Skill("Wisdom Save", "WIS");
+    private Skill chaSave = new Skill("Charisma Save", "CHA");
+
+    private Skill acrobatics = new Skill("Acrobatics", "DEX");
+    private Skill animalHandling = new Skill("Animal Handling", "WIS");
+    private Skill arcana = new Skill("Arcana", "INT");
+    private Skill athletics = new Skill("Athletics", "STR");
+    private Skill deception = new Skill("Deception", "CHA");
+    private Skill history = new Skill("History", "INT");
+    private Skill insight = new Skill("Insight", "WIS");
+    private Skill intimidation = new Skill("Intimidation", "CHA");
+    private Skill invesigation = new Skill("Investigation", "INT");
+    private Skill medicine = new Skill("Medicine", "WIS");
+    private Skill nature = new Skill("Nature", "INT");
+    private Skill perception = new Skill("Perception", "WIS");
+    private Skill performance = new Skill("Performance", "CHA");
+    private Skill persuasion = new Skill("Persuasion", "CHA");
+    private Skill religion = new Skill("Religion", "INT");
+    private Skill sleightOfHand = new Skill("Sleight of Hand", "DEX");
+    private Skill stealth = new Skill("Stealth", "DEX");
+    private Skill survival = new Skill("Survival", "WIS");
+
+
     //  default constructor
     public CharacterSheet() {
         username = "";
@@ -45,14 +72,10 @@ public class CharacterSheet {
     }
 
     public int getStrengthScore() {
-        System.out.println();
-        System.out.print("STR Score: ");
         return strength.getAbilityScore();
     }
 
     public int getStrengthModifier() {
-        System.out.println();
-        System.out.print("STR Mod: ");
         return strength.getAbilityModifier();
     }
 
@@ -62,14 +85,10 @@ public class CharacterSheet {
     }
 
     public int getDexScore() {
-        System.out.println();
-        System.out.print("DEX Score: ");
         return dexterity.getAbilityScore();
     }
 
     public int getDexModifier() {
-        System.out.println();
-        System.out.print("DEX Mod: ");
         return dexterity.getAbilityModifier();
     }
 
@@ -79,14 +98,10 @@ public class CharacterSheet {
     }
 
     public int getConScore() {
-        System.out.println();
-        System.out.print("CON Score: ");
         return constitution.getAbilityScore();
     }
 
     public int getConModifier() {
-        System.out.println();
-        System.out.print("CON Mod: ");
         return constitution.getAbilityModifier();
     }
 
@@ -96,14 +111,10 @@ public class CharacterSheet {
     }
 
     public int getIntScore() {
-        System.out.println();
-        System.out.print("INT Score: ");
         return intelligence.getAbilityScore();
     }
 
     public int getIntModifier() {
-        System.out.println();
-        System.out.print("INT Mod: ");
         return intelligence.getAbilityModifier();
     }
 
@@ -114,14 +125,10 @@ public class CharacterSheet {
     }
 
     public int getWisScore() {
-        System.out.println();
-        System.out.print("WIS Score: ");
         return wisdom.getAbilityScore();
     }
 
     public int getWisModifier() {
-        System.out.println();
-        System.out.print("WIS Mod: ");
         return wisdom.getAbilityModifier();
     }
 
@@ -132,14 +139,10 @@ public class CharacterSheet {
     }
 
     public int getChaScore() {
-        System.out.println();
-        System.out.print("CHA Score: ");
         return charisma.getAbilityScore();
     }
 
     public int getChaModifier() {
-        System.out.println();
-        System.out.print("CHA Mod: ");
         return charisma.getAbilityModifier();
     }
 
@@ -168,6 +171,13 @@ public class CharacterSheet {
         System.out.print("Dexterity Mod: ");
         System.out.print(getDexModifier());
         System.out.println();
+    }
+
+    //SKILLS
+    public void setSkills() {
+        for(int i = 0; i < 25; ++i) {
+
+        }
     }
 
     //getters and setters
