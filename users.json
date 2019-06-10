@@ -1,0 +1,17 @@
+[
+  {
+    "username": "tbollman",
+    "account-type": "player",
+    "password": "password123"
+  }
+  {
+    "username": "nshaw",
+    "account-type": "player",
+    "password": "testpassword"
+  }
+  {
+    "username": "naskew",
+    "account-type": "dm",
+    "password": "askew12"
+  }
+]
