@@ -347,9 +347,30 @@ public class CharacterSheet {
     //SKILLS
     //each skill has a name and associated attribute
     //each skill needs to have its proficiency and modifier set
-    public void setSkill(int location, int skillMod) {
-            skills[location].setName(getSkillName(location));
-            skills[location].setAbilityMod(getSkillAttribute(location));
+    public void setSkills() {
+        for (int i = 0; i < 24; ++i) {
+            skills[i].setName(getSkillName(i));
+            skills[i].setAbilityMod(getSkillAttribute(i));
+            System.out.print(this.getSkillName(i));
+            String answer;
+            System.out.println("Are you proficient in this skill?");
+            answer = keyboard.nextLine();
+            if (answer == "y") {
+                skills[i].setProficiency(true);
+            }
+        }
+    }
+
+    public void setSingleSkill(int location) {
+        skills[location].setName(getSkillName(location));
+        skills[location].setAbilityMod(getSkillAttribute(location));
+        System.out.println(getSkillName(location));
+        String answer;
+        System.out.println("Are you proficient in this skill?");
+        answer = keyboard.nextLine();
+        if (answer == "y") {
+            skills[location].setProficiency(true);
+        }
     }
 
     public void setProficient(int location) {
@@ -360,7 +381,7 @@ public class CharacterSheet {
         return skills[location].getProficiency();
     }
 
-    public int getSkill(int location) {
+    public int getSkillModifier(int location) {
         int modifier;
         String attribute = skills[location].getAbilityMod();
         if (attribute == "STR") {
@@ -387,7 +408,12 @@ public class CharacterSheet {
 
         return modifier;
     }
-    
+
+    public void showSkillInfo(int location) {
+        System.out.println("Skill Name: " + skills[location].getName());
+        System.out.println("Modifier: " + this.getSkillModifier(location));
+    }
+
     //getters and setters
     public void setCharacterName(String newName) {
         this.characterName = newName;
