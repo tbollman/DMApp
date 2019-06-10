@@ -7,6 +7,8 @@ public class CharacterDriver {
         CharacterSheet quintus = new CharacterSheet();
 
         quintus.characterCreator();
+        quintus.setSingleSkill(0);
+        quintus.showSkillInfo(0);
 
         quintus.displayCharacterInfo();
 
