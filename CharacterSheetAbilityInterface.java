@@ -6,10 +6,18 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.Image;
+
 import javax.swing.JTextArea;
 import javax.swing.JTextPane;
 import java.awt.Color;
@@ -231,6 +239,18 @@ public class CharacterSheetAbilityInterface extends JFrame {
 		ACTextArea.setFont(new Font("Algerian", Font.PLAIN, 16));
 		ACTextArea.setBounds(544, 13, 78, 22);
 		panel.add(ACTextArea);
-		setVisible(true);
+		
+		BufferedImage image = null;
+		try {
+			image = ImageIO.read(new File("character.png"));
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
+		JLabel imageLabel = new JLabel(new ImageIcon("character.png"));
+		imageLabel.setBounds(544, 49, 370, 401);
+		panel.add(imageLabel);
+		
 	}
 }
