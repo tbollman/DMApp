@@ -13,6 +13,8 @@ import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.JPasswordField;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import java.awt.Color;
 import javax.swing.GroupLayout;
@@ -142,42 +144,58 @@ public class LoginInterface {
             JLabel lblPassword = new JLabel("Password");
             lblPassword.setForeground(Color.ORANGE);
             lblPassword.setFont(new Font("Algerian", Font.BOLD, 18));
+            
+            JButton updatePasswordButton = new JButton("Update Password");
+            updatePasswordButton.addActionListener(new ActionListener() {
+            	public void actionPerformed(ActionEvent e) {
+            		String oldPassword = JOptionPane.showInputDialog(null, "Enter current password.");
+            		
+            		String newPassword = JOptionPane.showInputDialog(null, "Enter new password.");
+            	}
+            });
+            updatePasswordButton.setFont(new Font("Algerian", Font.PLAIN, 14));
             GroupLayout gl_panel = new GroupLayout(panel);
             gl_panel.setHorizontalGroup(
-                    gl_panel.createParallelGroup(Alignment.LEADING)
-                            .addGroup(gl_panel.createSequentialGroup()
-                                    .addGap(100)
-                                    .addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
-                                            .addGroup(gl_panel.createSequentialGroup()
-                                                    .addComponent(usernameLabel, GroupLayout.DEFAULT_SIZE, 107, Short.MAX_VALUE)
-                                                    .addGap(544))
-                                            .addComponent(usernameTextField, GroupLayout.DEFAULT_SIZE, 651, Short.MAX_VALUE)
-                                            .addGroup(gl_panel.createSequentialGroup()
-                                                    .addComponent(lblPassword, GroupLayout.DEFAULT_SIZE, 107, Short.MAX_VALUE)
-                                                    .addGap(544))
-                                            .addComponent(passwordField, GroupLayout.DEFAULT_SIZE, 651, Short.MAX_VALUE)
-                                            .addGroup(gl_panel.createSequentialGroup()
-                                                    .addComponent(loginButton, GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
-                                                    .addGap(300)
-                                                    .addComponent(createAccountButton, GroupLayout.DEFAULT_SIZE, 181, Short.MAX_VALUE)))
-                                    .addGap(81))
+            	gl_panel.createParallelGroup(Alignment.LEADING)
+            		.addGroup(gl_panel.createSequentialGroup()
+            			.addGap(100)
+            			.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
+            				.addGroup(gl_panel.createSequentialGroup()
+            					.addComponent(usernameLabel, GroupLayout.DEFAULT_SIZE, 107, Short.MAX_VALUE)
+            					.addGap(544))
+            				.addComponent(usernameTextField, GroupLayout.DEFAULT_SIZE, 651, Short.MAX_VALUE)
+            				.addGroup(gl_panel.createSequentialGroup()
+            					.addComponent(lblPassword, GroupLayout.DEFAULT_SIZE, 107, Short.MAX_VALUE)
+            					.addGap(544))
+            				.addComponent(passwordField, GroupLayout.DEFAULT_SIZE, 651, Short.MAX_VALUE)
+            				.addGroup(gl_panel.createSequentialGroup()
+            					.addComponent(loginButton, GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
+            					.addGap(300)
+            					.addComponent(createAccountButton, GroupLayout.DEFAULT_SIZE, 181, Short.MAX_VALUE)))
+            			.addGap(81))
+            		.addGroup(gl_panel.createSequentialGroup()
+            			.addContainerGap()
+            			.addComponent(updatePasswordButton)
+            			.addContainerGap(723, Short.MAX_VALUE))
             );
             gl_panel.setVerticalGroup(
-                    gl_panel.createParallelGroup(Alignment.LEADING)
-                            .addGroup(gl_panel.createSequentialGroup()
-                                    .addGap(326)
-                                    .addComponent(usernameLabel, GroupLayout.PREFERRED_SIZE, 16, Short.MAX_VALUE)
-                                    .addGap(13)
-                                    .addComponent(usernameTextField, GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
-                                    .addGap(13)
-                                    .addComponent(lblPassword, GroupLayout.PREFERRED_SIZE, 16, Short.MAX_VALUE)
-                                    .addGap(13)
-                                    .addComponent(passwordField, GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
-                                    .addGap(13)
-                                    .addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
-                                            .addComponent(loginButton, GroupLayout.PREFERRED_SIZE, 25, Short.MAX_VALUE)
-                                            .addComponent(createAccountButton, GroupLayout.PREFERRED_SIZE, 25, Short.MAX_VALUE))
-                                    .addGap(168))
+            	gl_panel.createParallelGroup(Alignment.LEADING)
+            		.addGroup(gl_panel.createSequentialGroup()
+            			.addGap(326)
+            			.addComponent(usernameLabel, GroupLayout.PREFERRED_SIZE, 16, Short.MAX_VALUE)
+            			.addGap(13)
+            			.addComponent(usernameTextField, GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+            			.addGap(13)
+            			.addComponent(lblPassword, GroupLayout.PREFERRED_SIZE, 16, Short.MAX_VALUE)
+            			.addGap(13)
+            			.addComponent(passwordField, GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+            			.addGap(13)
+            			.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
+            				.addComponent(loginButton, GroupLayout.PREFERRED_SIZE, 25, Short.MAX_VALUE)
+            				.addComponent(createAccountButton, GroupLayout.PREFERRED_SIZE, 25, Short.MAX_VALUE))
+            			.addGap(130)
+            			.addComponent(updatePasswordButton)
+            			.addContainerGap())
             );
             panel.setLayout(gl_panel);
         } catch (IOException e) {
