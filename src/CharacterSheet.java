@@ -183,6 +183,11 @@ public class CharacterSheet {
         System.out.println();
     }
 
+    /* SKILL METHODS
+     * Since skills are contained in an array, there are two methods that contain swtich statements
+     * that give either the skill name or the skill's ability modifier
+     * There is also a getter and setter for proficiency in a skill
+     */
     public String getSkillName(int location) {
         String skillName;
         switch (location) {
@@ -344,9 +349,7 @@ public class CharacterSheet {
         }
         return skillAtt;
     }
-    //SKILLS
-    //each skill has a name and associated attribute
-    //each skill needs to have its proficiency and modifier set
+
     public void setSkills() {
         for (int i = 0; i < 24; ++i) {
             skills[i].setName(getSkillName(i));
@@ -414,7 +417,16 @@ public class CharacterSheet {
         System.out.println("Modifier: " + this.getSkillModifier(location));
     }
 
-    //getters and setters
+    /*
+    * getters and setters for biographical information
+    * Character Name
+    * Character Race
+    * Character Class
+    * Armor Class
+    * Speed
+    * Proficiency Bonus
+    * Initiative
+    */
     public void setCharacterName(String newName) {
         this.characterName = newName;
     }
