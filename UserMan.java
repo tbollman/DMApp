@@ -35,10 +35,10 @@ public class UserMan {
     JSONArray userList = new JSONArray();
     for (int i = 0; i < user_count; i++) {
       JSONObject userDetails = new JSONObject();
-      userDetails.put("password", users.get(i).get_password());
-      userDetails.put("account-type", users.get(i).get_account_type());
       userDetails.put("username", users.get(i).get_user_name());
-      
+      userDetails.put("account-type", users.get(i).get_account_type());
+      userDetails.put("password", users.get(i).get_password());
+
       userList.add(userDetails);
     }
     try (FileWriter file = new FileWriter("./src/users.json")) {
@@ -93,12 +93,13 @@ public class UserMan {
     return logged_in;
   }
 
-  public int change_password(String old_password, String new_password) {
-    int passed = 0;
+
+  public boolean change_password(String new_password, String old_password) {
+    boolean passed = true;
     if (users.get(account_index).get_password().equals(old_password))
       users.get(account_index).set_password(new_password);
     else
-      passed = -1;
+      passed = false;
     write_file();
     return passed;
   }
