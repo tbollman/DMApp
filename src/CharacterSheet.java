@@ -43,7 +43,7 @@ public class CharacterSheet {
     private Skill history = new Skill("History", "INT");
     private Skill insight = new Skill("Insight", "WIS");
     private Skill intimidation = new Skill("Intimidation", "CHA");
-    private Skill invesigation = new Skill("Investigation", "INT");
+    private Skill investigation = new Skill("Investigation", "INT");
     private Skill medicine = new Skill("Medicine", "WIS");
     private Skill nature = new Skill("Nature", "INT");
     private Skill perception = new Skill("Perception", "WIS");
@@ -374,6 +374,14 @@ public class CharacterSheet {
         if (answer == "y") {
             skills[location].setProficiency(true);
         }
+    }
+
+    public void setSkill(int location, int newInt) {
+        skills[location].setModifier(newInt);
+    }
+
+    public int getSkill(int location) {
+        return skills[location].getModifier();
     }
 
     public void setProficient(int location) {
