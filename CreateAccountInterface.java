@@ -6,11 +6,17 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+import javax.swing.JList;
+import javax.swing.JComboBox;
+import java.awt.Font;
+import javax.swing.JButton;
+import java.awt.Color;
 
 public class CreateAccountInterface extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
+	private JTextField usernameTextField;
+	private JTextField passwordTextField;
 
 	/*
 	 * Launch the application
@@ -41,17 +47,55 @@ public class CreateAccountInterface extends JFrame {
 		setContentPane(contentPane);
 		
 		JPanel panel = new JPanel();
+		panel.setBackground(Color.BLACK);
 		contentPane.add(panel, BorderLayout.CENTER);
 		panel.setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setBounds(90, 98, 56, 16);
+		JLabel usernameLabel = new JLabel("Username");
+		usernameLabel.setForeground(Color.RED);
+		usernameLabel.setFont(new Font("Algerian", Font.BOLD, 16));
+		usernameLabel.setBounds(40, 185, 91, 16);
+		panel.add(usernameLabel);
+		
+		usernameTextField = new JTextField();
+		usernameTextField.setBounds(143, 173, 600, 40);
+		panel.add(usernameTextField);
+		usernameTextField.setColumns(10);
+		
+		JComboBox accountTypeComboBox = new JComboBox();
+		accountTypeComboBox.setMaximumRowCount(3);
+		accountTypeComboBox.setBounds(175, 332, 130, 22);
+		panel.add(accountTypeComboBox);
+		accountTypeComboBox.addItem(new String("1. Player"));
+		accountTypeComboBox.addItem(new String("2. Dungeon Master"));
+		accountTypeComboBox.addItem(new String("3. Administrator"));
+		
+		JLabel lblNewLabel = new JLabel("Password");
+		lblNewLabel.setForeground(Color.RED);
+		lblNewLabel.setFont(new Font("Algerian", Font.BOLD, 16));
+		lblNewLabel.setBounds(40, 260, 91, 16);
 		panel.add(lblNewLabel);
 		
-		textField = new JTextField();
-		textField.setBounds(181, 95, 116, 22);
-		panel.add(textField);
-		textField.setColumns(10);
+		passwordTextField = new JTextField();
+		passwordTextField.setColumns(10);
+		passwordTextField.setBounds(143, 248, 600, 40);
+		panel.add(passwordTextField);
+		
+		JLabel accountTypeLabel = new JLabel("Account Type");
+		accountTypeLabel.setForeground(Color.RED);
+		accountTypeLabel.setFont(new Font("Algerian", Font.BOLD, 16));
+		accountTypeLabel.setBounds(40, 335, 123, 16);
+		panel.add(accountTypeLabel);
+		
+		JButton confirmButton = new JButton("Confirm");
+		confirmButton.setFont(new Font("Algerian", Font.BOLD, 16));
+		confirmButton.setBounds(369, 437, 116, 25);
+		panel.add(confirmButton);
+		
+		JLabel createNewAccountLabel = new JLabel("Create New Account");
+		createNewAccountLabel.setFont(new Font("Algerian", Font.BOLD, 70));
+		createNewAccountLabel.setForeground(Color.ORANGE);
+		createNewAccountLabel.setBounds(12, 13, 824, 160);
+		panel.add(createNewAccountLabel);
 	}
-
 }
