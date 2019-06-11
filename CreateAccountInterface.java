@@ -11,6 +11,8 @@ import javax.swing.JComboBox;
 import java.awt.Font;
 import javax.swing.JButton;
 import java.awt.Color;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class CreateAccountInterface extends JFrame {
 
@@ -88,6 +90,12 @@ public class CreateAccountInterface extends JFrame {
 		panel.add(accountTypeLabel);
 		
 		JButton confirmButton = new JButton("Confirm");
+		confirmButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				dispose();
+                LoginInterface LoginInterface = new LoginInterface();
+			}
+		});
 		confirmButton.setFont(new Font("Algerian", Font.BOLD, 16));
 		confirmButton.setBounds(369, 437, 116, 25);
 		panel.add(confirmButton);
