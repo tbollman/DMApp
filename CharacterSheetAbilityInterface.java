@@ -169,19 +169,19 @@ public class CharacterSheetAbilityInterface extends JFrame {
 		JTextArea speedTextArea = new JTextArea();
 		speedTextArea.setEditable(false);
 		speedTextArea.setFont(new Font("Algerian", Font.PLAIN, 16));
-		speedTextArea.setBounds(82, 88, 78, 22);
+		speedTextArea.setBounds(153, 86, 78, 22);
 		panel.add(speedTextArea);
 		
 		JTextArea strengthTextArea = new JTextArea();
 		strengthTextArea.setEditable(false);
 		strengthTextArea.setFont(new Font("Algerian", Font.PLAIN, 16));
-		strengthTextArea.setBounds(118, 168, 78, 22);
+		strengthTextArea.setBounds(153, 166, 78, 22);
 		panel.add(strengthTextArea);
 		
 		JTextArea dexterityTextArea = new JTextArea();
 		dexterityTextArea.setEditable(false);
 		dexterityTextArea.setFont(new Font("Algerian", Font.PLAIN, 16));
-		dexterityTextArea.setBounds(128, 254, 78, 22);
+		dexterityTextArea.setBounds(153, 252, 78, 22);
 		panel.add(dexterityTextArea);
 		
 		JTextArea constitutionTextArea = new JTextArea();
@@ -193,7 +193,7 @@ public class CharacterSheetAbilityInterface extends JFrame {
 		JTextArea nameTextArea = new JTextArea();
 		nameTextArea.setEditable(false);
 		nameTextArea.setFont(new Font("Algerian", Font.PLAIN, 16));
-		nameTextArea.setBounds(82, 433, 78, 22);
+		nameTextArea.setBounds(153, 431, 78, 22);
 		panel.add(nameTextArea);
 		
 		JTextArea proficiencyTextArea = new JTextArea();
@@ -205,25 +205,25 @@ public class CharacterSheetAbilityInterface extends JFrame {
 		JTextArea intellectTextArea = new JTextArea();
 		intellectTextArea.setEditable(false);
 		intellectTextArea.setFont(new Font("Algerian", Font.PLAIN, 16));
-		intellectTextArea.setBounds(411, 168, 78, 22);
+		intellectTextArea.setBounds(430, 166, 78, 22);
 		panel.add(intellectTextArea);
 		
 		JTextArea wisdomTextArea = new JTextArea();
 		wisdomTextArea.setEditable(false);
 		wisdomTextArea.setFont(new Font("Algerian", Font.PLAIN, 16));
-		wisdomTextArea.setBounds(381, 254, 78, 22);
+		wisdomTextArea.setBounds(430, 252, 78, 22);
 		panel.add(wisdomTextArea);
 		
 		JTextArea charismaTextArea = new JTextArea();
 		charismaTextArea.setEditable(false);
 		charismaTextArea.setFont(new Font("Algerian", Font.PLAIN, 16));
-		charismaTextArea.setBounds(407, 341, 78, 22);
+		charismaTextArea.setBounds(430, 339, 78, 22);
 		panel.add(charismaTextArea);
 		
 		JTextArea classTextArea = new JTextArea();
 		classTextArea.setEditable(false);
 		classTextArea.setFont(new Font("Algerian", Font.PLAIN, 16));
-		classTextArea.setBounds(369, 433, 78, 22);
+		classTextArea.setBounds(430, 431, 78, 22);
 		panel.add(classTextArea);
 		
 		JTextArea ACTextArea = new JTextArea();
