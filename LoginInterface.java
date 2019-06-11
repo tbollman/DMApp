@@ -185,6 +185,7 @@ public class LoginInterface {
             e.printStackTrace();
         }
         setUIAppearance();
+        frame.setVisible(true);
     }
 
     /*

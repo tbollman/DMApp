@@ -23,14 +23,33 @@ public class UserMan {
             String account_type = (String) user.get("account-type");
             String password = (String) user.get("password");
             users.add(new User(username, account_type, password));
-                user_count++;
+            user_count++;
           }
     }
     catch (Exception e) {
       System.out.println(e);
     }
   }
-  
+
+  public void write_file() {
+    JSONArray userList = new JSONArray();
+    for (int i = 0; i < user_count; i++) {
+      JSONObject userDetails = new JSONObject();
+      userDetails.put("password", users.get(i).get_password());
+      userDetails.put("account-type", users.get(i).get_account_type());
+      userDetails.put("username", users.get(i).get_user_name());
+      
+      userList.add(userDetails);
+    }
+    try (FileWriter file = new FileWriter("./src/users.json")) {
+      file.write(userList.toJSONString());
+      file.flush();
+    }
+    catch (IOException e) {
+      e.printStackTrace();
+    }
+  }
+
   public boolean GetUser(String username) {
     boolean user_exists = false;
     for (int i = 0; i < user_count; i++) {
@@ -42,13 +61,12 @@ public class UserMan {
     return user_exists;
   }
 
-  public boolean create_account(String username, String account_type, String password) {
+  public boolean create_account(String username, int account_type, String password) {
     boolean is_valid = true;
     if (GetUser(username))
       is_valid = false;
-    int new_account_type = Integer.parseInt(account_type);
     String type = "none";
-    switch (new_account_type) {
+    switch (account_type) {
       case 0: type = "Player";
               break;
       case 1: type = "Dungeon Master";
@@ -63,6 +81,7 @@ public class UserMan {
     users.add(new User(username, type, password));
     user_count++;
     account_index = user_count;
+    write_file();
     return is_valid;
   }
   
@@ -80,6 +99,7 @@ public class UserMan {
       users.get(account_index).set_password(new_password);
     else
       passed = -1;
+    write_file();
     return passed;
   }
 
