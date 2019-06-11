@@ -70,11 +70,11 @@ public class CreateAccountInterface extends JFrame {
 		accountTypeComboBox.addItem(new String("2. Dungeon Master"));
 		accountTypeComboBox.addItem(new String("3. Administrator"));
 		
-		JLabel lblNewLabel = new JLabel("Password");
-		lblNewLabel.setForeground(Color.RED);
-		lblNewLabel.setFont(new Font("Algerian", Font.BOLD, 16));
-		lblNewLabel.setBounds(40, 260, 91, 16);
-		panel.add(lblNewLabel);
+		JLabel passwordLabel = new JLabel("Password");
+		passwordLabel.setForeground(Color.RED);
+		passwordLabel.setFont(new Font("Algerian", Font.BOLD, 16));
+		passwordLabel.setBounds(40, 260, 91, 16);
+		panel.add(passwordLabel);
 		
 		passwordTextField = new JTextField();
 		passwordTextField.setColumns(10);
