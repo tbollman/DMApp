@@ -1,12 +1,13 @@
 import java.awt.*;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
+import javax.imageio.ImageIO;
+import javax.swing.*;
 import javax.swing.border.EmptyBorder;
-import javax.swing.JLabel;
-import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
 public class CharacterSheetSkillInterface extends JFrame {
 
@@ -46,10 +47,24 @@ public class CharacterSheetSkillInterface extends JFrame {
 		panel.setForeground(Color.WHITE);
 		contentPane.add(panel, BorderLayout.CENTER);
 		panel.setLayout(null);
-		
+
 		JLabel lblNewLabel = new JLabel("Skills");
-		lblNewLabel.setBounds(149, 106, 56, 16);
+		lblNewLabel.setForeground(Color.RED);
+		lblNewLabel.setFont(new Font("Algerian", Font.BOLD, 18));
+		lblNewLabel.setBounds(12, 15, 80, 16);
 		panel.add(lblNewLabel);
+
+		JLabel strSaveLabel = new JLabel("STR Save");
+		strSaveLabel.setForeground(Color.RED);
+		strSaveLabel.setFont(new Font("Algerian", Font.BOLD, 18));
+		strSaveLabel.setBounds(12, 90, 59, 16);
+		panel.add(strSaveLabel);
+
+		JLabel dexSaveLabel = new JLabel("DEX Save");
+		dexSaveLabel.setForeground(Color.RED);
+		dexSaveLabel.setFont(new Font("Algerian", Font.BOLD, 18));
+		dexSaveLabel.setBounds(12, 170, 94, 16);
+		panel.add(dexSaveLabel);
 		
 		JButton btnNewButton = new JButton("Go Back");
 		btnNewButton.addActionListener(new ActionListener() {
@@ -58,8 +73,21 @@ public class CharacterSheetSkillInterface extends JFrame {
 				CharacterSheetAbilityInterface characterSheetAbilityInterface = new CharacterSheetAbilityInterface();
 			}
 		});
-		btnNewButton.setBounds(180, 191, 97, 25);
+		btnNewButton.setBounds(817, 463, 97, 25);
 		panel.add(btnNewButton);
 		setVisible(true);
+
+		BufferedImage image = null;
+		try {
+			image = ImageIO.read(new File("./src/bard.png"));
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+
+		JLabel imageLabel = new JLabel(new ImageIcon("./src/bard.png"));
+		imageLabel.setBounds(544, 49, 370, 401);
+		panel.add(imageLabel);
+
 	}
 }
