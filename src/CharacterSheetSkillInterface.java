@@ -1,5 +1,4 @@
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
+import java.awt.*;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -12,6 +11,7 @@ import java.awt.event.ActionEvent;
 public class CharacterSheetSkillInterface extends JFrame {
 
 	private JPanel contentPane;
+	private JButton btnNewButton;
 	
 	/*
 	 * Launch the application
@@ -35,13 +35,15 @@ public class CharacterSheetSkillInterface extends JFrame {
 	public CharacterSheetSkillInterface() {
 		setTitle("Character Sheet Skill");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 954, 558);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
 		
 		JPanel panel = new JPanel();
+		panel.setBackground(Color.BLACK);
+		panel.setForeground(Color.WHITE);
 		contentPane.add(panel, BorderLayout.CENTER);
 		panel.setLayout(null);
 		
