@@ -4,18 +4,10 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
+import javax.swing.*;
 import java.awt.BorderLayout;
-import javax.swing.JTextField;
-import javax.swing.UIManager;
-import javax.swing.UnsupportedLookAndFeelException;
-import javax.swing.JPasswordField;
-import javax.swing.JButton;
-import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.Color;
-import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -84,6 +76,9 @@ public class LoginInterface {
                     if(valid) {
                         frame.dispose();
                         MainMenuInterface MainMenuInterface = new MainMenuInterface();
+                    }
+                    else {
+                        JOptionPane.showMessageDialog(null, "Login Failed!");
                     }
                     //mainMenuInterface.setVisible(true);
 //	        		characterSheetInterface.setTitle("Character Sheet");
