@@ -47,6 +47,27 @@ public class CharacterSheet {
         charisma.setAbilityScore(10);
     }
 
+    public CharacterSheet(String newUserName, String newCharacterName, String newCharacterRace, String newCharacterClass,
+                          String newCharacterBackground, int newAC, int newInit, int newSpeed, int newPB, int strScore, int dexScore,
+                          int conScore, int intScore, int wisScore, int chaScore) {
+        username = newUserName;
+        characterName = newCharacterName;
+        characterRace = newCharacterRace;
+        characterClass = newCharacterClass;
+        characterBackground = newCharacterBackground;
+        armorClass = newAC;
+        initiative = newInit;
+        speed = newSpeed;
+        proficiencyBonus = newPB;
+
+        strength.setAbilityScore(strScore);
+        dexterity.setAbilityScore(dexScore);
+        constitution.setAbilityScore(conScore);
+        intelligence.setAbilityScore(intScore);
+        wisdom.setAbilityScore(wisScore);
+        charisma.setAbilityScore(chaScore);
+    }
+
     // set ability scores and get ability modifiers
     // STRENGTH
     public void setStrengthScore() {
@@ -313,7 +334,7 @@ public class CharacterSheet {
 
     public int getSkillModifier(int location) {
         int modifier;
-        String attribute = skills[location].getAbilityMod();
+        String attribute = this.getSkillAttribute(location);
         if (attribute == "STR") {
             modifier = this.getStrengthModifier();
         } else if (attribute == "DEX") {
