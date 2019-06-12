@@ -27,34 +27,6 @@ public class CharacterSheet {
         }
     }
 
-    /*
-    private Skill strSave = new Skill("Strength Save", "STR");
-    private Skill dexSave = new Skill("Dexterity Save", "DEX");
-    private Skill conSave = new Skill("Constitution Save", "CON");
-    private Skill intSave = new Skill("Intelligence Save", "INT");
-    private Skill wisSave = new Skill("Wisdom Save", "WIS");
-    private Skill chaSave = new Skill("Charisma Save", "CHA");
-
-    private Skill acrobatics = new Skill("Acrobatics", "DEX");
-    private Skill animalHandling = new Skill("Animal Handling", "WIS");
-    private Skill arcana = new Skill("Arcana", "INT");
-    private Skill athletics = new Skill("Athletics", "STR");
-    private Skill deception = new Skill("Deception", "CHA");
-    private Skill history = new Skill("History", "INT");
-    private Skill insight = new Skill("Insight", "WIS");
-    private Skill intimidation = new Skill("Intimidation", "CHA");
-    private Skill investigation = new Skill("Investigation", "INT");
-    private Skill medicine = new Skill("Medicine", "WIS");
-    private Skill nature = new Skill("Nature", "INT");
-    private Skill perception = new Skill("Perception", "WIS");
-    private Skill performance = new Skill("Performance", "CHA");
-    private Skill persuasion = new Skill("Persuasion", "CHA");
-    private Skill religion = new Skill("Religion", "INT");
-    private Skill sleightOfHand = new Skill("Sleight of Hand", "DEX");
-    private Skill stealth = new Skill("Stealth", "DEX");
-    private Skill survival = new Skill("Survival", "WIS");
- */
-
     //  default constructor
     public CharacterSheet() {
         username = "";
@@ -154,33 +126,6 @@ public class CharacterSheet {
 
     public int getChaModifier() {
         return charisma.getAbilityModifier();
-    }
-
-    public void setAllScores() {
-        System.out.print("Set Strength Score: ");
-        setStrengthScore();
-        System.out.println();
-        System.out.print("Set Dexterity Score: ");
-        setDexScore();
-        System.out.println();
-    }
-
-    public void showAllScores() {
-        System.out.print("Strength Score: ");
-        System.out.print(getStrengthScore());
-        System.out.println();
-        System.out.print("Dexterity Score: ");
-        System.out.print(getDexScore());
-        System.out.println();
-    }
-
-    public void showAllModifiers() {
-        System.out.print("Strength Mod: ");
-        System.out.print(getStrengthModifier());
-        System.out.println();
-        System.out.print("Dexterity Mod: ");
-        System.out.print(getDexModifier());
-        System.out.println();
     }
 
     /* SKILL METHODS
@@ -350,32 +295,6 @@ public class CharacterSheet {
         return skillAtt;
     }
 
-    public void setSkills() {
-        for (int i = 0; i < 24; ++i) {
-            skills[i].setName(getSkillName(i));
-            skills[i].setAbilityMod(getSkillAttribute(i));
-            System.out.print(this.getSkillName(i));
-            String answer;
-            System.out.println("Are you proficient in this skill?");
-            answer = keyboard.nextLine();
-            if (answer == "y") {
-                skills[i].setProficiency(true);
-            }
-        }
-    }
-
-    public void setSingleSkill(int location) {
-        skills[location].setName(getSkillName(location));
-        skills[location].setAbilityMod(getSkillAttribute(location));
-        System.out.println(getSkillName(location));
-        String answer;
-        System.out.println("Are you proficient in this skill?");
-        answer = keyboard.nextLine();
-        if (answer == "y") {
-            skills[location].setProficiency(true);
-        }
-    }
-
     public void setSkill(int location, int newInt) {
         skills[location].setModifier(newInt);
     }
@@ -420,11 +339,6 @@ public class CharacterSheet {
         return modifier;
     }
 
-    public void showSkillInfo(int location) {
-        System.out.println("Skill Name: " + skills[location].getName());
-        System.out.println("Modifier: " + this.getSkillModifier(location));
-    }
-
     /*
     * getters and setters for biographical information
     * Character Name
@@ -435,6 +349,15 @@ public class CharacterSheet {
     * Proficiency Bonus
     * Initiative
     */
+
+    public void setUsername(String newName) {
+        this.username = newName;
+    }
+
+    public String getUsername() {
+        return this.username;
+    }
+
     public void setCharacterName(String newName) {
         this.characterName = newName;
     }
@@ -493,31 +416,5 @@ public class CharacterSheet {
 
     public int getInitiative() {
         return this.initiative;
-    }
-
-    // Character Creator Method will use all of the set methods to prompt the user to enter in their information
-    public void characterCreator() {
-        System.out.println("Enter character name: ");
-        this.setCharacterName(keyboard.nextLine());
-        System.out.println("Enter character race: ");
-        this.setCharacterRace(keyboard.nextLine());
-        System.out.println("Enter character class: ");
-        this.setCharacterClass(keyboard.nextLine());
-        System.out.println("Enter character background: ");
-        this.setCharacterBackground(keyboard.nextLine());
-        System.out.println("Enter armor class: ");
-        System.out.println("Initiative: ");
-        System.out.println("Enter speed: ");
-        System.out.println("Enter proficiency bonus: ");
-
-        this.setAllScores();
-    }
-
-    public void displayCharacterInfo() {
-        System.out.println("Name: " + characterName);
-        System.out.println("Race: " + characterRace);
-        System.out.println("Class: " + characterClass);
-        this.showAllScores();
-        this.showAllModifiers();
     }
 }
