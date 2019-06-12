@@ -386,6 +386,10 @@ public class CharacterSheet {
         this.characterBackground = newBackground;
     }
 
+    public String getCharacterBackground() {
+        return this.characterBackground;
+    }
+
     public void setArmorClass(int newAC) {
         this.armorClass = newAC;
     }
