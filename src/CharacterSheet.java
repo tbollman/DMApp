@@ -79,7 +79,7 @@ public class CharacterSheet {
         proficiencyBonus = newPB;
         for (int i = 0; i < skills.length; i++) {
             skills[i] = new Skill();
-            skills[i].setName(nSkills.pop());
+            skills[i].setModifier(nSkills.pop());
         }
     }
 
@@ -248,131 +248,6 @@ public class CharacterSheet {
                 throw new IllegalStateException("Unexpected value: " + location);
         }
         return skillName;
-    }
-
-    public String getSkillAttribute(int location) {
-        String skillAtt;
-        switch (location) {
-            case 0:
-                skillAtt = "STR";
-                break;
-            case 1:
-                skillAtt = "DEX";
-                break;
-            case 2:
-                skillAtt = "CON";
-                break;
-            case 3:
-                skillAtt = "INT";
-                break;
-            case 4:
-                skillAtt = "WIS";
-                break;
-            case 5:
-                skillAtt = "CHA";
-                break;
-            case 6:
-                skillAtt = "DEX";
-                break;
-            case 7:
-                skillAtt = "WIS";
-                break;
-            case 8:
-                skillAtt = "INT";
-                break;
-            case 9:
-                skillAtt = "STR";
-                break;
-            case 10:
-                skillAtt = "CHA";
-                break;
-            case 11:
-                skillAtt = "INT";
-                break;
-            case 12:
-                skillAtt = "WIS";
-                break;
-            case 13:
-                skillAtt = "CHA";
-                break;
-            case 14:
-                skillAtt = "INT";
-                break;
-            case 15:
-                skillAtt = "WIS";
-                break;
-            case 16:
-                skillAtt = "INT";
-                break;
-            case 17:
-                skillAtt = "WIS";
-                break;
-            case 18:
-                skillAtt = "CHA";
-                break;
-            case 19:
-                skillAtt = "CHA";
-                break;
-            case 20:
-                skillAtt = "INT";
-                break;
-            case 21:
-                skillAtt = "DEX";
-                break;
-            case 22:
-                skillAtt = "DEX";
-                break;
-            case 23:
-                skillAtt = "WIS";
-                break;
-            default:
-                throw new IllegalStateException("Unexpected value: " + location);
-        }
-        return skillAtt;
-    }
-
-    public void setSkill(int location, int newInt) {
-        skills[location].setModifier(newInt);
-    }
-
-    public int getSkill(int location) {
-        return skills[location].getModifier();
-    }
-
-    public void setProficient(int location) {
-        skills[location].setProficiency(true);
-    }
-
-    public boolean getProficiency(int location) {
-        return skills[location].getProficiency();
-    }
-
-    public int getSkillModifier(int location) {
-        int modifier;
-        String attribute = this.getSkillAttribute(location);
-        if (attribute == "STR") {
-            modifier = this.getStrengthModifier();
-        } else if (attribute == "DEX") {
-            modifier = this.getDexModifier();
-        } else if (attribute == "CON") {
-            modifier = this.getConModifier();
-        } else if (attribute == "INT") {
-            modifier = this.getIntModifier();
-        } else if (attribute == "WIS") {
-            modifier = this.getWisModifier();
-        } else if (attribute == "CHA") {
-            modifier = this.getChaModifier();
-        } else {
-            modifier = 0;
-        }
-
-        boolean isProficient = skills[location].getProficiency();
-
-        if (isProficient) {
-            modifier += this.getProficiencyBonus();
-        }
-
-        return modifier;
     }
 
     /*
