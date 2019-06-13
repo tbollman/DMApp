@@ -1,3 +1,4 @@
+import java.util.LinkedList;
 import java.util.Scanner;
 
 public class CharacterSheet {
@@ -11,7 +12,9 @@ public class CharacterSheet {
     private int armorClass;
     private int initiative;
     private int speed;
-    private int proficiencyBonus;
+
+    private String hitDie;
+    private int hitPoints;
 
     private Ability strength = new Ability();
     private Ability dexterity = new Ability();
@@ -19,6 +22,8 @@ public class CharacterSheet {
     private Ability intelligence = new Ability();
     private Ability wisdom = new Ability();
     private Ability charisma = new Ability();
+
+    private int proficiencyBonus;
 
     private Skill[] skills = new Skill[24];
     {
@@ -48,8 +53,10 @@ public class CharacterSheet {
     }
 
     public CharacterSheet(String newUserName, String newCharacterName, String newCharacterRace, String newCharacterClass,
-                          String newCharacterBackground, int newAC, int newInit, int newSpeed, int newPB, int strScore, int dexScore,
-                          int conScore, int intScore, int wisScore, int chaScore) {
+                          String newCharacterBackground, int strScore, int dexScore, int conScore, int intScore, int wisScore,
+                          int chaScore, int newAC, int newInit, int newSpeed, String newhitDie, int HP, int newPB, LinkedList<Integer> nSkills,
+                          LinkedList<String> languages, LinkedList<String> features, LinkedList<String> weapons, LinkedList<String> armor,
+                          LinkedList<String> potions, LinkedList<String> supplies, LinkedList<String> spells) {
         username = newUserName;
         characterName = newCharacterName;
         characterRace = newCharacterRace;
@@ -58,7 +65,9 @@ public class CharacterSheet {
         armorClass = newAC;
         initiative = newInit;
         speed = newSpeed;
-        proficiencyBonus = newPB;
+
+        hitDie = newhitDie;
+        hitPoints = HP;
 
         strength.setAbilityScore(strScore);
         dexterity.setAbilityScore(dexScore);
@@ -66,12 +75,18 @@ public class CharacterSheet {
         intelligence.setAbilityScore(intScore);
         wisdom.setAbilityScore(wisScore);
         charisma.setAbilityScore(chaScore);
+
+        proficiencyBonus = newPB;
+        for (int i = 0; i < skills.length; i++) {
+            skills[i] = new Skill();
+            skills[i].setName(nSkills.pop());
+        }
     }
 
     // set ability scores and get ability modifiers
     // STRENGTH
     public void setStrengthScore() {
-            strength.setAbilityScore(keyboard.nextInt());
+        strength.setAbilityScore(keyboard.nextInt());
     }
 
     public int getStrengthScore() {
@@ -361,15 +376,15 @@ public class CharacterSheet {
     }
 
     /*
-    * getters and setters for biographical information
-    * Character Name
-    * Character Race
-    * Character Class
-    * Armor Class
-    * Speed
-    * Proficiency Bonus
-    * Initiative
-    */
+     * getters and setters for biographical information
+     * Character Name
+     * Character Race
+     * Character Class
+     * Armor Class
+     * Speed
+     * Proficiency Bonus
+     * Initiative
+     */
 
     public void setUsername(String newName) {
         this.username = newName;
