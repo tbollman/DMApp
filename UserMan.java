@@ -12,7 +12,9 @@ public class UserMan {
   public String user_name;
   public boolean logged_in = false;
   LinkedList<CharacterSheet> characters = new LinkedList<CharacterSheet>();
-  public int character_count;
+  LinkedList<CharacterSheet> owned_characters = new LinkedList<CharacterSheet>();
+  public int character_count = 0;
+  public int owned_character_count = 0;
 
   public void read_file() {
     JSONParser jsonParser = new JSONParser();
@@ -32,6 +34,7 @@ public class UserMan {
       System.out.println(e);
     }
   }
+
   public void read_characters() {
     JSONParser jsonParser = new JSONParser();
     try {
@@ -39,7 +42,6 @@ public class UserMan {
       for (Object o : characterList) {
         JSONObject character = (JSONObject) o;
         String username = (String) character.get("username");
-        if(username.equals(user_name)) {
           String characterName = (String) character.get("Character Name");
           String characterRace = (String) character.get("Character Race");
           String characterClass = (String) character.get("Character Class");
@@ -106,26 +108,38 @@ public class UserMan {
           skills.add(stealth);
           int survival = Integer.parseInt((String) character.get("Survival"));
           skills.add(survival);
-          LinkedList<String> languages = (LinkedList<String>) character.get("Languages");
-          LinkedList<String> features = (LinkedList<String>) character.get("Features");
+          LinkedList<String> languages = new LinkedList<String>();
+          String language0 = (String) character.get("Language0");
+          languages.add(language0);
+          if((String) character.get("Language1") != null) {
+            String language1 = (String) character.get("Language1");
+            languages.add(language1);
+          }
+
+          LinkedList<String> features = (LinkedList<String>) character.get("features");
           LinkedList<String> weapons = (LinkedList<String>) character.get("Weapons");
           LinkedList<String> armor = (LinkedList<String>) character.get("Armor");
           LinkedList<String> potions = (LinkedList<String>) character.get("Potions");
           LinkedList<String> supplies = (LinkedList<String>) character.get("Supplies");
           LinkedList<String> spells = (LinkedList<String>) character.get("Spells");
 
-          characters.add(new
-          CharacterSheet(user_name,
-            characterName,characterRace,characterClass,background,strScore,dexScore,conScore,intScore,
-            wisScore,chaScore,armorClass,initiative,speed,hitDie,hitPoints,proficiency,skills,languages,features,weapons,armor,potions,supplies,spells));
+          characters.add(new CharacterSheet(username,characterName,characterRace,characterClass,background,strScore,dexScore,conScore,intScore,wisScore,chaScore,armorClass,initiative,speed,hitDie,hitPoints,proficiency,skills,languages,features,weapons,armor,potions,supplies,spells));
           character_count++;
-        }
+          System.out.println("Character Name: "+characterName+" Count: "+character_count);
       }
     }
     catch (Exception e) {
       System.out.println(e);
     }
   }
+
+/*  public void write_character_sheet() {
+    JSONArray characterList = new JSONArray();
+    for(int i = 0; i < character_count; i++) {
+      JSONObject characterDetails = new JSONObject();
+      characterDetails.put("username", user_name);
+    }
+  }*/
 
   public void write_file() {
     JSONArray userList = new JSONArray();
@@ -183,8 +197,10 @@ public class UserMan {
   
   public boolean login_attempt(String username, String password) {
     if (GetUser(username)) {
-      if (users.get(account_index).get_password().equals(password))
+      if (users.get(account_index).get_password().equals(password)) {
         logged_in = true;
+        user_name = username;
+      }
     }
     return logged_in;
   }
