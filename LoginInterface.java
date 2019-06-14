@@ -75,7 +75,7 @@ public class LoginInterface {
                     boolean valid = users.login_attempt(usernameTextField.getText(), passwordField.getText());
                     if(valid) {
                         frame.dispose();
-                        MainMenuInterface MainMenuInterface = new MainMenuInterface();
+                        MainMenuInterface MainMenuInterface = new MainMenuInterface(users);
                     }
                     else {
                         JOptionPane.showMessageDialog(null, "Login Failed!");
@@ -107,7 +107,7 @@ public class LoginInterface {
             createAccountButton.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
                     frame.dispose();
-                    CreateAccountInterface createAccountInterface = new CreateAccountInterface();
+                    CreateAccountInterface createAccountInterface = new CreateAccountInterface(users);
                     createAccountInterface.setVisible(true);
 //	        		createAccountFrame.setTitle("Create Account");
 //	        		createAccountFrame.setBounds(100, 100, 1105, 782);
