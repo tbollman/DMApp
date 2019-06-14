@@ -1,15 +1,9 @@
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
+import javax.swing.*;
 import javax.swing.border.EmptyBorder;
-import javax.swing.JLabel;
-import javax.swing.JTextField;
-import javax.swing.JList;
-import javax.swing.JComboBox;
 import java.awt.Font;
-import javax.swing.JButton;
 import java.awt.Color;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -24,7 +18,7 @@ public class CreateAccountInterface extends JFrame {
     /*
      * Launch the application
      */
-    public static void main(String[] args) {
+/*    public static void main(String[] args) {
         EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
@@ -35,13 +29,13 @@ public class CreateAccountInterface extends JFrame {
                 }
             }
         });
-    }
+    }*/
 
     /*
      * Create the frame
      */
-    public CreateAccountInterface() {
-        users.read_file();
+    public CreateAccountInterface(UserMan u) {
+        users = u;
         setTitle("Create Account");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(100, 100, 876, 532);
@@ -97,6 +91,8 @@ public class CreateAccountInterface extends JFrame {
                 if (users.create_account(usernameTextField.getText(), accountTypeComboBox.getSelectedIndex(), passwordTextField.getText())) {
                     dispose();
                     LoginInterface loginInterface = new LoginInterface();
+                } else {
+                    JOptionPane.showMessageDialog(null, "Username already exists!");
                 }
             }
         });
