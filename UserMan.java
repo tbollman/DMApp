@@ -6,6 +6,7 @@ import org.json.simple.parser.*;
 
 public class UserMan {
   LinkedList<User> users = new LinkedList<User>();
+  public static final String DELIM = ",";
   public Scanner keyboard = new Scanner(System.in);
   public int user_count;
   public int account_index;
@@ -109,27 +110,55 @@ public class UserMan {
           int survival = Integer.parseInt((String) character.get("Survival"));
           skills.add(survival);
           LinkedList<String> languages = new LinkedList<String>();
-          String language0 = (String) character.get("Language0");
-          languages.add(language0);
-          if((String) character.get("Language1") != null) {
-            String language1 = (String) character.get("Language1");
-            languages.add(language1);
-          }
-
-          LinkedList<String> features = (LinkedList<String>) character.get("features");
-          LinkedList<String> weapons = (LinkedList<String>) character.get("Weapons");
-          LinkedList<String> armor = (LinkedList<String>) character.get("Armor");
-          LinkedList<String> potions = (LinkedList<String>) character.get("Potions");
-          LinkedList<String> supplies = (LinkedList<String>) character.get("Supplies");
-          LinkedList<String> spells = (LinkedList<String>) character.get("Spells");
+          String languagesS = (String) character.get("Languages");
+          String[] splitLangs = languagesS.split(DELIM);
+          for(int i = 0; i < splitLangs.length; i++)
+            languages.add(splitLangs[i]);
+          LinkedList<String> features = new LinkedList<String>();
+          LinkedList<String> weapons = new LinkedList<String>();
+          LinkedList<String> armor = new LinkedList<String>();
+          LinkedList<String> potions = new LinkedList<String>();
+          LinkedList<String> supplies = new LinkedList<String>();
+          LinkedList<String> spells = new LinkedList<String>();
+          String featuresS = (String) character.get("Features");
+          String[] splitFeats = featuresS.split(DELIM);
+          for(int i = 0; i < splitFeats.length; i++)
+            features.add(splitFeats[i]);
+          String weaponsS = (String) character.get("Weapons");
+          String[] splitWeaps = weaponsS.split(DELIM);
+          for(int i = 0; i < splitWeaps.length; i++)
+            weapons.add(splitWeaps[i]);
+          String armorS = (String) character.get("Armor");
+          String[] splitArms = armorS.split(DELIM);
+          for(int i = 0; i < splitArms.length; i++)
+            armor.add(splitArms[i]);
+          String potionsS = (String) character.get("Potions");
+          String[] splitPotions = potionsS.split(DELIM);
+          for(int i = 0; i < splitPotions.length; i++)
+            potions.add(splitPotions[i]);
+          String suppliesS = (String) character.get("Supplies");
+          String[] splitSupps = suppliesS.split(DELIM);
+          for(int i = 0; i < splitSupps.length; i++)
+          supplies.add(splitSupps[i]);
+          String spellsS = (String) character.get("Spells");
+          String[] splitSpells = spellsS.split(DELIM);
+          for(int i = 0; i < splitSpells.length; i++)
+          spells.add(splitSpells[i]);
 
           characters.add(new CharacterSheet(username,characterName,characterRace,characterClass,background,strScore,dexScore,conScore,intScore,wisScore,chaScore,armorClass,initiative,speed,hitDie,hitPoints,proficiency,skills,languages,features,weapons,armor,potions,supplies,spells));
           character_count++;
-          System.out.println("Character Name: "+characterName+" Count: "+character_count);
       }
     }
     catch (Exception e) {
       System.out.println(e);
+    }
+  }
+  public void get_owned_characters() {
+    for (int i = 0; i < character_count; i++) {
+      if (characters.get(i).getUsername().equals(user_name)) {
+        owned_characters.add(characters.get(i));
+        owned_character_count++;
+      }
     }
   }
 
