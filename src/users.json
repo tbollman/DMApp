@@ -1,17 +1,1 @@
-[
-  {
-    "username": "tbollman",
-    "account-type": "player",
-    "password": "password123"
-  }
-  {
-    "username": "nshaw",
-    "account-type": "player",
-    "password": "testpassword"
-  }
-  {
-    "username": "naskew",
-    "account-type": "dm",
-    "password": "askew12"
-  }
-]
+[{"password":"password123","account-type":"player","username":"tbollman"},{"password":"testpassword","account-type":"player","username":"nshaw"},{"password":"askew12","account-type":"dm","username":"naskew"},{"password":"f","account-type":"Player","username":"f"}]
