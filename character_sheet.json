@@ -45,8 +45,13 @@
   "Performance" : "0",
   "Persuasion" : "0",
 
-  "Language0" : "Elvish",
-  "Language1" : "English"
+  "Languages" : "Elvish,English",
+  "Features" : "Dark Vision,Stone Cunning",
+  "Weapons" : "Sword,Dagger,Bow",
+  "Armor" : "Chain Shirt,Shield",
+  "Potions" : "Potion of Healing,Potion of Invisibility",
+  "Supplies" : "Candle,Rations,Bell,Bedroll",
+  "Spells" : "Cure Wounds,Acid Splash,Invisibility,Magic Missile"
 },
   {
     "Username" : "tbollman",
@@ -89,14 +94,19 @@
     "Insight" : "0",
     "Medicine" : "0",
     "Perception" : "0",
-    "Survival" : "0",
+    "Survival" : "10",
     "Deception" : "0",
     "Intimidation" : "0",
     "Performance" : "0",
     "Persuasion" : "0",
 
-    "Language0" : "Elvish",
-    "Language1" : "English"
+    "Languages" : "Elvish,English",
+    "Features" : "Dark Vision,Stone Cunning",
+    "Weapons" : "Sword,Dagger,Bow",
+    "Armor" : "Chain Shirt,Shield",
+    "Potions" : "Potion of Healing,Potion of Invisibility",
+    "Supplies" : "Candle,Rations,Bell,Bedroll",
+    "Spells" : "Cure Wounds,Acid Splash,Invisibility,Magic Missile"
   }
   ]
 
