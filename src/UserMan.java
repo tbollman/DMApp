@@ -44,6 +44,7 @@ public class UserMan {
         JSONObject character = (JSONObject) o;
         String username = (String) character.get("Username");
           String characterName = (String) character.get("Character Name");
+          int level = Integer.parseInt((String) character.get("Level"));
           String characterRace = (String) character.get("Character Race");
           String characterClass = (String) character.get("Character Class");
           String background = (String) character.get("Background");
@@ -53,6 +54,7 @@ public class UserMan {
           int intScore = Integer.parseInt((String) character.get("Intelligence Score"));
           int wisScore = Integer.parseInt((String) character.get("Wisdom Score"));
           int chaScore = Integer.parseInt((String) character.get("Charisma Score"));
+
           int armorClass = Integer.parseInt((String) character.get("Armor Class"));
           int initiative = Integer.parseInt((String) character.get("Initiative"));
           int speed = Integer.parseInt((String) character.get("Speed"));
@@ -111,9 +113,8 @@ public class UserMan {
           LinkedList<String> languages = new LinkedList<String>();
           String languagesS = (String) character.get("Languages");
           String[] splitLangs = languagesS.split(DELIM);
-          for(int i = 0; i < splitLangs.length; i++) {
+          for(int i = 0; i < splitLangs.length; i++)
             languages.add(splitLangs[i]);
-          }
           LinkedList<String> features = new LinkedList<String>();
           LinkedList<String> weapons = new LinkedList<String>();
           LinkedList<String> armor = new LinkedList<String>();
@@ -144,7 +145,8 @@ public class UserMan {
           String[] splitSpells = spellsS.split(DELIM);
           for(int i = 0; i < splitSpells.length; i++)
           spells.add(splitSpells[i]);
-          characters.add(new CharacterSheet(username,characterName,characterRace,characterClass,background,strScore,dexScore,conScore,intScore,wisScore,chaScore,armorClass,initiative,speed,hitDie,hitPoints,proficiency,skills,languages,features,weapons,armor,potions,supplies,spells));
+
+          characters.add(new CharacterSheet(username,characterName,level, characterRace,characterClass,background,strScore,dexScore,conScore,intScore,wisScore,chaScore,armorClass,initiative,speed,hitDie,hitPoints,proficiency,skills,languages,features,weapons,armor,potions,supplies,spells));
           character_count++;
       }
       get_owned_characters();
@@ -246,3 +248,4 @@ public class UserMan {
   }
 
 }
+
