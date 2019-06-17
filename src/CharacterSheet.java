@@ -6,6 +6,7 @@ public class CharacterSheet {
 
     private String username;
     private String characterName;
+    private int level;
     private String characterRace;
     private String characterClass;
     private String characterBackground;
@@ -36,6 +37,7 @@ public class CharacterSheet {
     public CharacterSheet() {
         username = "";
         characterName = "";
+        level = 0;
         characterRace = "";
         characterClass = "";
         characterBackground = "";
@@ -52,13 +54,14 @@ public class CharacterSheet {
         charisma.setAbilityScore(10);
     }
 
-    public CharacterSheet(String newUserName, String newCharacterName, String newCharacterRace, String newCharacterClass,
+    public CharacterSheet(String newUserName, String newCharacterName, int read_level, String newCharacterRace, String newCharacterClass,
                           String newCharacterBackground, int strScore, int dexScore, int conScore, int intScore, int wisScore,
                           int chaScore, int newAC, int newInit, int newSpeed, String newhitDie, int HP, int newPB, LinkedList<Integer> nSkills,
                           LinkedList<String> languages, LinkedList<String> features, LinkedList<String> weapons, LinkedList<String> armor,
                           LinkedList<String> potions, LinkedList<String> supplies, LinkedList<String> spells) {
         username = newUserName;
         characterName = newCharacterName;
+        level = read_level;
         characterRace = newCharacterRace;
         characterClass = newCharacterClass;
         characterBackground = newCharacterBackground;
@@ -87,6 +90,12 @@ public class CharacterSheet {
     // STRENGTH
     public void setStrengthScore() {
         strength.setAbilityScore(keyboard.nextInt());
+    }
+    public int getHitPoints() {
+        return this.hitPoints;
+    }
+    public int getLevel() {
+        return this.level;
     }
 
     public int getStrengthScore() {
