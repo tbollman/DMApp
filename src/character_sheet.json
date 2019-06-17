@@ -1,6 +1,7 @@
 [{
   "Username" : "tbollman",
   "Character Name" : "Quintus Metellus",
+  "Level" : "0",
   "Character Race" : "Human",
   "Character Class" : "Fighter",
   "Background" : "City Watch",
@@ -54,14 +55,15 @@
   "Spells" : "Cure Wounds,Acid Splash,Invisibility,Magic Missile"
 },
   {
-    "Username" : "tbollman",
-    "Character Name" : "Test Character",
-    "Character Race" : "Elf",
-    "Character Class" : "Witch",
-    "Background" : "Homeless",
+    "Username" : "nshaw",
+    "Character Name" : "Noah Shaw",
+    "Level" : "27",
+    "Character Race" : "Human",
+    "Character Class" : "Student",
+    "Background" : "South",
     "Armor Class" : "10",
     "Initiative" : "0",
-    "Speed" : "25",
+    "Speed" : "30",
 
     "Hit Die" : "1d10",
     "Hit Points" : "10",
@@ -109,27 +111,28 @@
     "Spells" : "Cure Wounds,Acid Splash,Invisibility,Magic Missile"
   },
   {
-    "Username" : "nshaw",
-    "Character Name" : "Quintus Metellus",
-    "Character Race" : "Human",
-    "Character Class" : "Fighter",
-    "Background" : "City Watch",
+    "Username" : "tbollman",
+    "Character Name" : "Test Character",
+    "Level" : "1",
+    "Character Race" : "Elf",
+    "Character Class" : "Witch",
+    "Background" : "Homeless",
     "Armor Class" : "10",
     "Initiative" : "0",
     "Speed" : "30",
-  
+
     "Hit Die" : "1d10",
     "Hit Points" : "10",
-  
+
     "Strength Score" : "10",
     "Dexterity Score" : "10",
     "Constitution Score" : "10",
     "Intelligence Score" : "10",
     "Wisdom Score" : "10",
     "Charisma Score" : "10",
-  
+
     "Proficiency Bonus" : "2",
-  
+
     "Strength Save" : "0",
     "Dexterity Save" : "0",
     "Constitution Save" : "0",
@@ -149,12 +152,12 @@
     "Insight" : "0",
     "Medicine" : "0",
     "Perception" : "0",
-    "Survival" : "0",
+    "Survival" : "10",
     "Deception" : "0",
     "Intimidation" : "0",
     "Performance" : "0",
     "Persuasion" : "0",
-  
+
     "Languages" : "Elvish,English",
     "Features" : "Dark Vision,Stone Cunning",
     "Weapons" : "Sword,Dagger,Bow",
@@ -164,3 +167,4 @@
     "Spells" : "Cure Wounds,Acid Splash,Invisibility,Magic Missile"
   }
   ]
+
