@@ -4,50 +4,51 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.*;
 
+
 public class UserMan {
-  /*********************************************************************************************************************
+  /**
    * Stores the Users read in from "users.json" for use by various methods
    */
   LinkedList<User> users = new LinkedList<User>();
-  /*********************************************************************************************************************
+  /**
    * DELIM used for reading in List of items stored as a single string in "character_sheet.json"
    */
   public static final String DELIM = ",";
-  /*********************************************************************************************************************
+  /**
    * Keeps track of number of users in "users.json"
    */
-  public int user_count;
-  /*********************************************************************************************************************
+  public int userCount;
+  /**
    * Keeps track of account index in LinkedList of Users of the user currently logged in.
    */
-  public int account_index;
-  /*********************************************************************************************************************
+  public int accountIndex;
+  /**
    * Keeps track of username of user currently logged in.
    */
-  public String user_name;
-  public boolean logged_in = false;
-  /*********************************************************************************************************************
+  public String userName;
+  public boolean loggedIn = false;
+  /**
    * Stores all CharacterSheet(s) read in from "character_sheet.json" to be rewrote later.
    */
   LinkedList<CharacterSheet> characters = new LinkedList<CharacterSheet>();
-  /*********************************************************************************************************************
+  /**
    * Stores CharacterSheet(s) whose username values match the username of the User currently logged in.
    */
-  LinkedList<CharacterSheet> owned_characters = new LinkedList<CharacterSheet>();
-  /*********************************************************************************************************************
+  LinkedList<CharacterSheet> ownedCharacters = new LinkedList<CharacterSheet>();
+  /**
    * Keeps track of the number of characters read in from "character_sheet.json"
    */
-  public int character_count = 0;
-  /*********************************************************************************************************************
-   * Keeps track of the CharacterSheet(s) stored in LinkedList<CharacterSheet> owned_characters;
+  public int characterCount = 0;
+  /**
+   * Keeps track of the CharacterSheet(s) stored in LinkedList<CharacterSheet> ownedCharacters;
    */
-  public int owned_character_count = 0;
+  public int ownedCharacterCount = 0;
 
-  /*********************************************************************************************************************
+  /**
    * Reads the JSON values stored in "users.json", parses them, creates a new instance of a User, and adds that instance
    * to the LinkedList of Users.
    */
-  public void read_file() {
+  public void readFile() {
     JSONParser jsonParser = new JSONParser();
     try {
       JSONArray userList = (JSONArray)jsonParser.parse(new
@@ -58,20 +59,19 @@ public class UserMan {
             String account_type = (String) user.get("account-type");
             String password = (String) user.get("password");
             users.add(new User(username, account_type, password));
-            user_count++;
+            userCount++;
           }
-    }
-    catch (Exception e) {
+    } catch (Exception e) {
       System.out.println(e);
     }
   }
 
-  /***********************************************************************************************************************
+  /**
    * Reads the JSON values stored in "character_sheet.json", parses them, create a new instance of a CharacterSheet, and
    * adds that instance to the LinkedList of Characters. Then calls GetOwnedCharacters();
    *
    */
-  public void read_characters() {
+  public void readCharacters() {
     JSONParser jsonParser = new JSONParser();
     try {
       JSONArray characterList = (JSONArray)jsonParser.parse(new FileReader("./src/character_sheet.json"));
@@ -147,7 +147,7 @@ public class UserMan {
           skills.add(survival);
           LinkedList<String> languages = new LinkedList<String>();
           String languagesS = (String) character.get("Languages");
-          StoreValues(languagesS, languages);
+          storeValues(languagesS, languages);
           LinkedList<String> features = new LinkedList<String>();
           LinkedList<String> weapons = new LinkedList<String>();
           LinkedList<String> armor = new LinkedList<String>();
@@ -155,65 +155,63 @@ public class UserMan {
           LinkedList<String> supplies = new LinkedList<String>();
           LinkedList<String> spells = new LinkedList<String>();
           String featuresS = (String) character.get("Features");
-          StoreValues(featuresS, features);
+          storeValues(featuresS, features);
           String weaponsS = (String) character.get("Weapons");
-          StoreValues(weaponsS, weapons);
+          storeValues(weaponsS, weapons);
           String armorS = (String) character.get("Armor");
-          StoreValues(armorS, armor);
+          storeValues(armorS, armor);
           String potionsS = (String) character.get("Potions");
-          StoreValues(potionsS, potions);
+          storeValues(potionsS, potions);
           String suppliesS = (String) character.get("Supplies");
-          StoreValues(suppliesS, supplies);
+          storeValues(suppliesS, supplies);
           String spellsS = (String) character.get("Spells");
-          StoreValues(spellsS, spells);
+          storeValues(spellsS, spells);
 
           characters.add(new CharacterSheet(username,characterName,level, characterRace,characterClass,background,strScore,dexScore,conScore,intScore,wisScore,chaScore,armorClass,initiative,speed,hitDie,hitPoints,proficiency,skills,languages,features,weapons,armor,potions,supplies,spells));
-          character_count++;
+          characterCount++;
       }
-      get_owned_characters();
-    }
-    catch (Exception e) {
+      getOwnedCharacters();
+    } catch (Exception e) {
       System.out.println(e);
     }
   }
 
-  /*********************************************************************************************************************
+  /**
    * Accepts parameter String, splits it at DELIM, and stores each value in the passed LinkedList before returning the LinkedList
    * @param line  -   Value read from JSON file
    * @param store -   line split and stored into LinkedList
    * @return
    */
-  public LinkedList<String> StoreValues(String line, LinkedList<String> store) {
+  public void storeValues(String line, LinkedList<String> store) {
     String[] splitLine = line.split(DELIM);
     for (int i = 0; i < splitLine.length; i++)
       store.add(splitLine[i]);
-    return store;
   }
 
-  /*********************************************************************************************************************
+  /**
    * Takes the LinkedList of characters, checks to see if the username attached to that CharacterSheet matches the
-   * username of the User logged in, and adds that CharacterSheet to LinkedList owned_characters.
+   * username of the User logged in, and adds that CharacterSheet to LinkedList ownedCharacters.
    */
-  public void get_owned_characters() {
-    for (int i = 0; i < character_count; i++) {
-      if (characters.get(i).getUsername().equals(user_name)) {
-        owned_characters.add(characters.get(i));
-        owned_character_count++;
+  public void getOwnedCharacters() {
+    for (int i = 0; i < characterCount; i++) {
+      if (characters.get(i).getUsername().equals(userName)) {
+        ownedCharacters.add(characters.get(i));
+        ownedCharacterCount++;
       }
     }
   }
 
-  /*********************************************************************************************************************
+  /**
    * Takes the LinkedList of Users, creates a JSONObject from each one, adds them to a JSONArray, and writes that
    * JSONArray to character_sheet.json.
    */
-  public void write_file() {
+  public void writeFile() {
     JSONArray userList = new JSONArray();
-    for (int i = 0; i < user_count; i++) {
+    for (int i = 0; i < userCount; i++) {
       JSONObject userDetails = new JSONObject();
-      userDetails.put("username", users.get(i).get_user_name());
-      userDetails.put("account-type", users.get(i).get_account_type());
-      userDetails.put("password", users.get(i).get_password());
+      userDetails.put("username", users.get(i).getUserName());
+      userDetails.put("account-type", users.get(i).getAccountType());
+      userDetails.put("password", users.get(i).getPassword());
 
       userList.add(userDetails);
     }
@@ -226,23 +224,23 @@ public class UserMan {
     }
   }
 
-  /*********************************************************************************************************************
+  /**
    * Finds a User from the LinkedList of users based upon their username.
    * @param username
    * @return
    */
-  public boolean GetUser(String username) {
+  public boolean getUser(String username) {
     boolean user_exists = false;
-    for (int i = 0; i < user_count; i++) {
-      if (username.equals(users.get(i).get_user_name())) {
-        account_index = i;
+    for (int i = 0; i < userCount; i++) {
+      if (username.equals(users.get(i).getUserName())) {
+        accountIndex = i;
         user_exists = true;
       }
     }
     return user_exists;
   }
 
-  /*********************************************************************************************************************
+  /**
    * Create a new account, verifies the username doesn't already exist, and writes the values of the new account to
    * "users.json".
    * @param username
@@ -252,43 +250,47 @@ public class UserMan {
    */
   public boolean create_account(String username, int account_type, String password) {
     boolean is_valid = true;
-    if (GetUser(username))
+    if (getUser(username))
       is_valid = false;
     String type = "none";
     switch (account_type) {
-      case 0: type = "Player";
-              break;
-      case 1: type = "Dungeon Master";
-              break;
-      case 2: type = "Admin";
-              break;
-      default: is_valid = false;
-               break;
+      case 0: 
+        type = "Player";
+        break;
+      case 1: 
+        type = "Dungeon Master";
+        break;
+      case 2: 
+        type = "Admin";
+        break;
+      default: 
+        is_valid = false;
+        break;
     }
     if(!is_valid)
       return is_valid;
     users.add(new User(username, type, password));
-    user_count++;
-    account_index = user_count;
-    write_file();
+    userCount++;
+    accountIndex = userCount;
+    writeFile();
     return is_valid;
   }
 
-  /*********************************************************************************************************************
+  /**
    * Takes in two Strings, username and password, checks if username exists, reads the associated password, and compares
    * it to the passed password. If they match, the username is stored as the logged in user, and true is returned.
    * @param username
    * @param password
    * @return
    */
-  public boolean login_attempt(String username, String password) {
-    if (GetUser(username)) {
-      if (users.get(account_index).get_password().equals(password)) {
-        logged_in = true;
-        user_name = username;
+  public boolean loginAttempt(String username, String password) {
+    if (getUser(username)) {
+      if (users.get(accountIndex).getPassword().equals(password)) {
+        loggedIn = true;
+        userName = username;
       }
     }
-    return logged_in;
+    return loggedIn;
   }
 
   /*********************************************************************************************************************
@@ -298,13 +300,13 @@ public class UserMan {
    * @param old_password
    * @return
    */
-  public boolean change_password(String new_password, String old_password) {
+  public boolean changePassword(String newPassword, String oldPassword) {
     boolean passed = true;
-    if (users.get(account_index).get_password().equals(old_password))
-      users.get(account_index).set_password(new_password);
+    if (users.get(accountIndex).getPassword().equals(old_password))
+      users.get(accountIndex).setPassword(new_password);
     else
       passed = false;
-    write_file();
+    writeFile();
     return passed;
   }
 
