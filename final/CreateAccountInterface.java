@@ -14,9 +14,9 @@ import java.awt.event.ActionEvent;
  */
 public class CreateAccountInterface extends JFrame {
 
-	/**
-	 * An instance of UserMan that manages the user(s).
-	 */
+    /**
+    * An instance of UserMan that manages the user(s).
+    */
     private UserMan users;
     /**
      * A container that contains all JavaSwing components.
@@ -27,7 +27,7 @@ public class CreateAccountInterface extends JFrame {
      * Initializes the frame and adds every component to the frame. A constructor for CreateAccountInterface.
      * 
      * @param	u	the active instance of UserMan that manages the current user(s)
-     * @see			UserMan
+     * @see		UserMan
      */
     public CreateAccountInterface(UserMan u) {
     	users = u;
