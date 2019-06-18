@@ -19,9 +19,9 @@ import java.awt.event.ActionEvent;
  */
 public class LoginInterface {
 
-	/**
-	 * An instance of UserMan that manages the user(s).
-	 */
+    /**
+    * An instance of UserMan that manages the user(s).
+    */
     private UserMan users;
     /**
      * An instance of JFrame that is a top-level container to contain an instance of JPanel.
@@ -49,7 +49,7 @@ public class LoginInterface {
      */
     public LoginInterface() {
     	users = new UserMan();
-        users.read_file();
+        users.readFile();
         initialize();
     }
 
@@ -63,7 +63,7 @@ public class LoginInterface {
         frame.setBounds(100, 100, 850, 630);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         try {
-        	// Paint the background.
+	    // Paint the background.
             final BufferedImage image = ImageIO.read(new File("./src/background.jpg"));
             JPanel panel = new JPanel() {
                 @Override
@@ -90,7 +90,7 @@ public class LoginInterface {
             loginButton.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent arg0) {
                 	boolean valid = false;
-                	valid = users.login_attempt(usernameTextField.getText(), passwordField.getText());
+                	valid = users.loginAttempt(usernameTextField.getText(), passwordField.getText());
                     if (valid) {
                         frame.dispose();
                         MainMenuInterface MainMenuInterface = new MainMenuInterface(users);
