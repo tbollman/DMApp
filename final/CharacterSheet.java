@@ -1,12 +1,14 @@
 import java.util.LinkedList;
-import java.util.Scanner;
 
+/**
+ * The CharacterSheet class manages all the information needed for a player to keep track of their character.
+ */
 public class CharacterSheet {
-    private Scanner keyboard = new Scanner(System.in);
-
+    /**
+     * These variables hold biographical information for the character.
+     */
     private String username;
     private String characterName;
-    private int level;
     private String characterRace;
     private String characterClass;
     private String characterBackground;
@@ -26,18 +28,30 @@ public class CharacterSheet {
 
     private int proficiencyBonus;
 
-    private Skill[] skills = new Skill[24];
+    private static final int skillNum = 24;
+
+    private String[] skillNames = {"Strength Save", "Dexterity Save", "Constitution Save",
+                                    "Intelligence Save", "Wisdom Save", "Charisma Save",
+                                    "Acrobatics", "Animal Handling", "Arcana",
+                                    "Athletics", "Deception", "History",
+                                    "Insight", "Intimidation", "Investigation",
+                                    "Medicine", "Nature", "Perception",
+                                    "Performance", "Persuasion", "Religion",
+                                    "Sleight of Hand", "Stealth", "Survival"}
+
+    private Skill[] skills = new Skill[skillNum];
     {
-        for (int i = 0; i < 24; i++) {
+        for (int i = 0; i < skillNum; i++) {
             skills[i] = new Skill();
         }
     }
 
-    //  default constructor
+    /**
+     * Default constructor.
+     */
     public CharacterSheet() {
         username = "";
         characterName = "";
-        level = 0;
         characterRace = "";
         characterClass = "";
         characterBackground = "";
@@ -54,14 +68,41 @@ public class CharacterSheet {
         charisma.setAbilityScore(10);
     }
 
-    public CharacterSheet(String newUserName, String newCharacterName, int read_level, String newCharacterRace, String newCharacterClass,
+    /**
+     * Constructor that takes in as paramaters all information regarding a character.
+     * @param newUserName
+     * @param newCharacterName
+     * @param newCharacterRace
+     * @param newCharacterClass
+     * @param newCharacterBackground
+     * @param strScore
+     * @param dexScore
+     * @param conScore
+     * @param intScore
+     * @param wisScore
+     * @param chaScore
+     * @param newAC
+     * @param newInit
+     * @param newSpeed
+     * @param newhitDie
+     * @param HP
+     * @param newPB
+     * @param nSkills
+     * @param languages
+     * @param features
+     * @param weapons
+     * @param armor
+     * @param potions
+     * @param supplies
+     * @param spells
+     */
+    public CharacterSheet(String newUserName, String newCharacterName, String newCharacterRace, String newCharacterClass,
                           String newCharacterBackground, int strScore, int dexScore, int conScore, int intScore, int wisScore,
                           int chaScore, int newAC, int newInit, int newSpeed, String newhitDie, int HP, int newPB, LinkedList<Integer> nSkills,
                           LinkedList<String> languages, LinkedList<String> features, LinkedList<String> weapons, LinkedList<String> armor,
                           LinkedList<String> potions, LinkedList<String> supplies, LinkedList<String> spells) {
         username = newUserName;
         characterName = newCharacterName;
-        level = read_level;
         characterRace = newCharacterRace;
         characterClass = newCharacterClass;
         characterBackground = newCharacterBackground;
@@ -86,383 +127,318 @@ public class CharacterSheet {
         }
     }
 
-    // set ability scores and get ability modifiers
-    // STRENGTH
-    public void setStrengthScore() {
-        strength.setAbilityScore(keyboard.nextInt());
-    }
-    public int getHitPoints() {
-        return this.hitPoints;
-    }
-    public int getLevel() {
-        return this.level;
+    /**
+     * Sets the Strength Score to integer newScore.
+     * @param newScore
+     */
+    public void setStrengthScore(int newScore) {
+        strength.setAbilityScore(newScore);
     }
 
+    /**
+     *
+     * @return strength.getAbilityScore()
+     */
     public int getStrengthScore() {
         return strength.getAbilityScore();
     }
 
+    /**
+     * Calls getAbilityModifier from the Ability Class and returns the result.
+     * @return strength.getAbilityModifier()
+     */
     public int getStrengthModifier() {
         return strength.getAbilityModifier();
     }
 
-    // DEXTERITY
-    public void setDexScore() {
-        dexterity.setAbilityScore(keyboard.nextInt());
+    /**
+     * Sets the Dexterity Score to integer newScore.
+     * @param newScore
+     */
+    public void setDexScore(int newScore) {
+        dexterity.setAbilityScore(newScore);
     }
 
+    /**
+     * Returns the value stored in the ability.
+     * @return dexterity.getAbilityScore()
+     */
     public int getDexScore() {
         return dexterity.getAbilityScore();
     }
 
+    /**
+     * Calls getAbilityModifier from the Ability Class and returns the result.
+     * @return dexterity.getAbilityModifier()
+     */
     public int getDexModifier() {
         return dexterity.getAbilityModifier();
     }
 
-    // CONSTITUTION
-    public void setConScore() {
-        constitution.setAbilityScore(keyboard.nextInt());
+    /**
+     * Sets the Constitution Score to integer newScore.
+     * @param newScore
+     */
+    public void setConScore(int newScore) {
+        constitution.setAbilityScore(newScore);
     }
 
+    /**
+     * Returns the value stored in the ability.
+     * @return constitution.getAbilityScore()
+     */
     public int getConScore() {
         return constitution.getAbilityScore();
     }
 
+    /**
+     * Calls getAbilityModifier from the Ability Class and returns the result.
+     * @return constitution.getAbilityModifier()
+     */
     public int getConModifier() {
         return constitution.getAbilityModifier();
     }
 
-    // INTELLIGENCE
-    public void setIntScore() {
-        intelligence.setAbilityScore(keyboard.nextInt());
+    /**
+     * Sets the Intelligence Score to integer newScore.
+     * @param newScore
+     */
+    public void setIntScore(int newScore) {
+        intelligence.setAbilityScore(newScore);
     }
 
+    /**
+     * Returns the value stored in the ability.
+     * @return intelligence.getAbilityScore()
+     */
     public int getIntScore() {
         return intelligence.getAbilityScore();
     }
 
+    /**
+     * Calls getAbilityModifier from the Ability Class and returns the result.
+     * @return intelligence.getAbilityModifier()
+     */
     public int getIntModifier() {
         return intelligence.getAbilityModifier();
     }
 
-    // WISDOM
-
-    public void setWisScore() {
-        wisdom.setAbilityScore(keyboard.nextInt());
+    /**
+     * Sets the Wisdom Score to integer newScore.
+     * @param newScore
+     */
+    public void setWisScore(int newScore) {
+        wisdom.setAbilityScore(newScore);
     }
 
+    /**
+     * Returns the value stored in the ability.
+     * @return wisdom.getAbilityScore()
+     */
     public int getWisScore() {
         return wisdom.getAbilityScore();
     }
 
+    /**
+     * Calls getAbilityModifier from the Ability Class and returns the result.
+     * @return wisdom.getAbilityModifier()
+     */
     public int getWisModifier() {
         return wisdom.getAbilityModifier();
     }
 
-    // CHARISMA
-
-    public void setChaScore() {
-        charisma.setAbilityScore(keyboard.nextInt());
+    /**
+     * Sets the Charisma Score to integer newScore.
+     * @param newScore
+     */
+    public void setChaScore(int newScore) {
+        charisma.setAbilityScore(newScore);
     }
 
+    /**
+     * Returns the value stored in the ability.
+     * @return charisma.getAbilityScore()
+     */
     public int getChaScore() {
         return charisma.getAbilityScore();
     }
 
+    /**
+     * Calls getAbilityModifier from the Ability Class and returns the result.
+     * @return charisma.getAbilityModifier()
+     */
     public int getChaModifier() {
         return charisma.getAbilityModifier();
     }
 
-    /* SKILL METHODS
-     * Since skills are contained in an array, there are two methods that contain swtich statements
-     * that give either the skill name or the skill's ability modifier
-     * There is also a getter and setter for proficiency in a skill
+    /**
+     * Takes in an integer and searches the array skillNames for the String at that location.
+     * @param location
+     * @return skillNames[location]
      */
     public String getSkillName(int location) {
-        String skillName;
-        switch (location) {
-            case 0:
-                skillName = "Strength Save";
-                break;
-            case 1:
-                skillName = "Dexterity Save";
-                break;
-            case 2:
-                skillName = "Constitution Save";
-                break;
-            case 3:
-                skillName = "Intelligence Save";
-                break;
-            case 4:
-                skillName = "Wisdom Save";
-                break;
-            case 5:
-                skillName = "Charisma Save";
-                break;
-            case 6:
-                skillName = "Acrobatics";
-                break;
-            case 7:
-                skillName = "Animal Handling";
-                break;
-            case 8:
-                skillName = "Arcana";
-                break;
-            case 9:
-                skillName = "Athletics";
-                break;
-            case 10:
-                skillName = "Deception";
-                break;
-            case 11:
-                skillName = "History";
-                break;
-            case 12:
-                skillName = "Insight";
-                break;
-            case 13:
-                skillName = "Intimidation";
-                break;
-            case 14:
-                skillName = "Investigation";
-                break;
-            case 15:
-                skillName = "Medicine";
-                break;
-            case 16:
-                skillName = "Nature";
-                break;
-            case 17:
-                skillName = "Perception";
-                break;
-            case 18:
-                skillName = "Performance";
-                break;
-            case 19:
-                skillName = "Persuasion";
-                break;
-            case 20:
-                skillName = "Religion";
-                break;
-            case 21:
-                skillName = "Sleight of Hand";
-                break;
-            case 22:
-                skillName = "Stealth";
-                break;
-            case 23:
-                skillName = "Survival";
-                break;
-            default:
-                throw new IllegalStateException("Unexpected value: " + location);
-        }
-        return skillName;
+        return skillNames[location];
     }
 
-    public String getSkillAttribute(int location) {
-        String skillAtt;
-        switch (location) {
-            case 0:
-                skillAtt = "STR";
-                break;
-            case 1:
-                skillAtt = "DEX";
-                break;
-            case 2:
-                skillAtt = "CON";
-                break;
-            case 3:
-                skillAtt = "INT";
-                break;
-            case 4:
-                skillAtt = "WIS";
-                break;
-            case 5:
-                skillAtt = "CHA";
-                break;
-            case 6:
-                skillAtt = "DEX";
-                break;
-            case 7:
-                skillAtt = "WIS";
-                break;
-            case 8:
-                skillAtt = "INT";
-                break;
-            case 9:
-                skillAtt = "STR";
-                break;
-            case 10:
-                skillAtt = "CHA";
-                break;
-            case 11:
-                skillAtt = "INT";
-                break;
-            case 12:
-                skillAtt = "WIS";
-                break;
-            case 13:
-                skillAtt = "CHA";
-                break;
-            case 14:
-                skillAtt = "INT";
-                break;
-            case 15:
-                skillAtt = "WIS";
-                break;
-            case 16:
-                skillAtt = "INT";
-                break;
-            case 17:
-                skillAtt = "WIS";
-                break;
-            case 18:
-                skillAtt = "CHA";
-                break;
-            case 19:
-                skillAtt = "CHA";
-                break;
-            case 20:
-                skillAtt = "INT";
-                break;
-            case 21:
-                skillAtt = "DEX";
-                break;
-            case 22:
-                skillAtt = "DEX";
-                break;
-            case 23:
-                skillAtt = "WIS";
-                break;
-            default:
-                throw new IllegalStateException("Unexpected value: " + location);
-        }
-        return skillAtt;
-    }
-
+    /**
+     * Takes in two integers. The first is the index of the array of skills. The second is the modifier that will be
+     * contained at that index.
+     * @param location
+     * @param newInt
+     */
     public void setSkill(int location, int newInt) {
         skills[location].setModifier(newInt);
     }
 
+    /**
+     * Takes in an integer and searches the array skills for the integer at that location.
+     * @param location
+     * @return skills[location].getModifier()
+     */
     public int getSkill(int location) {
         return skills[location].getModifier();
     }
 
-//    public void setProficient(int location) {
-//        skills[location].setProficiency(true);
-//    }
-//
-//    public boolean getProficiency(int location) {
-//        return skills[location].getProficiency();
-//    }
-
-    public int getSkillModifier(int location) {
-        int modifier;
-        String attribute = this.getSkillAttribute(location);
-        if (attribute == "STR") {
-            modifier = this.getStrengthModifier();
-        } else if (attribute == "DEX") {
-            modifier = this.getDexModifier();
-        } else if (attribute == "CON") {
-            modifier = this.getConModifier();
-        } else if (attribute == "INT") {
-            modifier = this.getIntModifier();
-        } else if (attribute == "WIS") {
-            modifier = this.getWisModifier();
-        } else if (attribute == "CHA") {
-            modifier = this.getChaModifier();
-        } else {
-            modifier = 0;
-        }
-
-//        boolean isProficient = skills[location].getProficiency();
-//
-//        if (isProficient) {
-//            modifier += this.getProficiencyBonus();
-//        }
-
-        return modifier;
-    }
-
-    /*
-     * getters and setters for biographical information
-     * Character Name
-     * Character Race
-     * Character Class
-     * Armor Class
-     * Speed
-     * Proficiency Bonus
-     * Initiative
+    /**
+     * Sets the username.
+     * @param newName
      */
-
     public void setUsername(String newName) {
         this.username = newName;
     }
 
+    /**
+     * Returns the username.
+     * @return username
+     */
     public String getUsername() {
         return this.username;
     }
 
+    /**
+     * Sets the character name.
+     * @param newName
+     */
     public void setCharacterName(String newName) {
         this.characterName = newName;
     }
 
+    /**
+     * Returns the character name.
+     * @return characterName
+     */
     public String getCharacterName() {
         return this.characterName;
     }
 
+    /**
+     * Sets the character race.
+     * @param newRace
+     */
     public void setCharacterRace(String newRace) {
         this.characterRace = newRace;
     }
 
+    /**
+     * Returns the character race.
+     * @return characterRace
+     */
     public String getCharacterRace() {
         return this.characterRace;
     }
 
+    /**
+     * Sets the character class.
+     * @param newClass
+     */
     public void setCharacterClass(String newClass) {
         this.characterClass = newClass;
     }
 
+    /**
+     * Returns the character class.
+     * @return characterClass
+     */
     public String getCharacterClass() {
         return this.characterClass;
     }
 
+    /**
+     * sets the character background.
+     * @param newBackground
+     */
     public void setCharacterBackground(String newBackground) {
         this.characterBackground = newBackground;
     }
 
+    /**
+     * Returns the character background.
+     * @return
+     */
     public String getCharacterBackground() {
         return this.characterBackground;
     }
 
+    /**
+     * Sets the armor class.
+     * @param newAC
+     */
     public void setArmorClass(int newAC) {
         this.armorClass = newAC;
     }
 
+    /**
+     * Returns the armor class.
+     * @return armorClass
+     */
     public int getArmorClass() {
         return this.armorClass;
     }
 
+    /**
+     * Sets the speed.
+     * @param newSpeed
+     */
     public void setSpeed(int newSpeed) {
         this.speed = newSpeed;
     }
 
+    /**
+     * Returns the speed.
+     * @return speed
+     */
     public int getSpeed() {
         return this.speed;
     }
 
+    /**
+     * Sets the proficiency bonus
+     * @param newPB
+     */
     public void setProficiencyBonus(int newPB) {
         this.proficiencyBonus = newPB;
     }
 
+    /**
+     * Returns the proficiency bonus.
+     * @return proficiency
+     */
     public int getProficiencyBonus() {
         return this.proficiencyBonus;
     }
 
+    /**
+     * Sets the initiative.
+     * @param initiative
+     */
     public void setInitiative(int initiative) {
         this.initiative = initiative;
     }
 
+    /**
+     * Returns the initiative.
+     * @return initiative
+     */
     public int getInitiative() {
         return this.initiative;
     }
