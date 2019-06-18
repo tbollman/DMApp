@@ -22,9 +22,9 @@ import javax.swing.JComboBox;
  */
 public class CharacterSheetSkillInterface extends JFrame {
 	
-	/**
-	 * An instance of UserMan that manages the user(s).
-	 */
+    /**
+    * An instance of UserMan that manages the user(s).
+    */
     private UserMan users;
     /**
      * A container that contains all JavaSwing components.
@@ -35,7 +35,7 @@ public class CharacterSheetSkillInterface extends JFrame {
      * Initializes the frame and adds every component to the frame. A constructor for CharacterSheetSkillInterface.
      * 
      * @param	u	the active instance of UserMan that manages the current user(s)
-     * @see			UserMan
+     * @see		UserMan
      */
     public CharacterSheetSkillInterface(UserMan u) {
     	users = u;
@@ -94,23 +94,23 @@ public class CharacterSheetSkillInterface extends JFrame {
         panel.add(characterComboBox);
         // Add each of the user's owned characters to the combo box.
         if (characterComboBox.getItemCount() == 0)
-	        for (int i = 0; i < users.owned_characters.size(); i++)
-	        	characterComboBox.addItem(new String(users.owned_characters.get(i).getCharacterName()));
+	        for (int i = 0; i < users.ownedCharacters.size(); i++)
+	        	characterComboBox.addItem(new String(users.ownedCharacters.get(i).getCharacterName()));
         // For the selected character, display all of their skills.
         characterComboBox.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent arg0) {
         		int index = characterComboBox.getSelectedIndex();
         		if (index != -1)
                 	for (int i = 0; i < 24; i++)
-                		skillsTextArea.append(users.owned_characters.get(index).getSkillName(i) + ": " + users.owned_characters.get(index).getSkill(i) + "\n");
+                		skillsTextArea.append(users.ownedCharacters.get(index).getSkillName(i) + ": " + users.ownedCharacters.get(index).getSkill(i) + "\n");
         	}
         });
         
         JScrollPane sp = new JScrollPane(skillsTextArea, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-		sp.setBounds(10, 29, 404, 175);
-		panel.add(sp);
+	sp.setBounds(10, 29, 404, 175);
+	panel.add(sp);
 		
-		setUIAppearance();
+	setUIAppearance();
         setVisible(true);
     }
     
