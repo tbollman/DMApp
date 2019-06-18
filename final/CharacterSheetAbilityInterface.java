@@ -21,10 +21,9 @@ import javax.swing.JComboBox;
  * @see JFrame
  */
 public class CharacterSheetAbilityInterface extends JFrame {
-	
-	/**
-	 * An instance of UserMan that manages the user(s).
-	 */
+    /**
+    * An instance of UserMan that manages the user(s).
+    */
     private UserMan users;
     /**
      * A container that contains all JavaSwing components.
@@ -35,7 +34,7 @@ public class CharacterSheetAbilityInterface extends JFrame {
      * Initializes the frame and adds every component to the frame. A constructor for CharacterSheetAbilityInterface.
      * 
      * @param	u	the active instance of UserMan that manages the current user(s)
-     * @see			UserMan
+     * @see		UserMan
      */
     public CharacterSheetAbilityInterface(UserMan u) {
     	users = u;
@@ -242,27 +241,27 @@ public class CharacterSheetAbilityInterface extends JFrame {
         panel.add(characterComboBox);
         // Add each of the user's owned characters to the combo box.
         if (characterComboBox.getItemCount() == 0)
-	        for (int i = 0; i < users.owned_characters.size(); i++)
-	        	characterComboBox.addItem(new String(users.owned_characters.get(i).getCharacterName()));
+	        for (int i = 0; i < users.ownedCharacters.size(); i++)
+	        	characterComboBox.addItem(new String(users.ownedCharacters.get(i).getCharacterName()));
         // For the selected character, display all of their abilities.
         characterComboBox.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent arg0) {
         		int index = characterComboBox.getSelectedIndex();
         		if (index != -1) {
-                	levelTextArea.setText(String.valueOf(users.owned_characters.get(index).getLevel()));
-                	HPTextArea.setText(String.valueOf(users.owned_characters.get(index).getHitPoints()));
-                	initiativeTextArea.setText(String.valueOf(users.owned_characters.get(index).getInitiative()));
-                	speedTextArea.setText(String.valueOf(users.owned_characters.get(index).getSpeed()));
-                	strengthTextArea.setText(String.valueOf(users.owned_characters.get(index).getStrengthScore()));
-                	dexterityTextArea.setText(String.valueOf(users.owned_characters.get(index).getDexScore()));
-                	constitutionTextArea.setText(String.valueOf(users.owned_characters.get(index).getConScore()));
-                	nameTextArea.setText(users.owned_characters.get(index).getCharacterName());
-                	proficiencyTextArea.setText(String.valueOf(users.owned_characters.get(index).getProficiencyBonus()));
-                	intellectTextArea.setText(String.valueOf(users.owned_characters.get(index).getIntScore()));
-                	wisdomTextArea.setText(String.valueOf(users.owned_characters.get(index).getWisScore()));
-                	charismaTextArea.setText(String.valueOf(users.owned_characters.get(index).getChaScore()));
-                	classTextArea.setText(users.owned_characters.get(index).getCharacterClass());
-                	ACTextArea.setText(String.valueOf(users.owned_characters.get(index).getArmorClass()));
+                	levelTextArea.setText(String.valueOf(users.ownedCharacters.get(index).getLevel()));
+                	HPTextArea.setText(String.valueOf(users.ownedCharacters.get(index).getHitPoints()));
+                	initiativeTextArea.setText(String.valueOf(users.ownedCharacters.get(index).getInitiative()));
+                	speedTextArea.setText(String.valueOf(users.ownedCharacters.get(index).getSpeed()));
+                	strengthTextArea.setText(String.valueOf(users.ownedCharacters.get(index).getStrengthScore()));
+                	dexterityTextArea.setText(String.valueOf(users.ownedCharacters.get(index).getDexScore()));
+                	constitutionTextArea.setText(String.valueOf(users.ownedCharacters.get(index).getConScore()));
+                	nameTextArea.setText(users.ownedCharacters.get(index).getCharacterName());
+                	proficiencyTextArea.setText(String.valueOf(users.ownedCharacters.get(index).getProficiencyBonus()));
+                	intellectTextArea.setText(String.valueOf(users.ownedCharacters.get(index).getIntScore()));
+                	wisdomTextArea.setText(String.valueOf(users.ownedCharacters.get(index).getWisScore()));
+                	charismaTextArea.setText(String.valueOf(users.ownedCharacters.get(index).getChaScore()));
+                	classTextArea.setText(users.ownedCharacters.get(index).getCharacterClass());
+                	ACTextArea.setText(String.valueOf(users.ownedCharacters.get(index).getArmorClass()));
         		}
         	}
         });
