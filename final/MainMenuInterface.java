@@ -21,9 +21,9 @@ import javax.swing.JLabel;
  */
 public class MainMenuInterface extends JFrame {
 	
-	/**
-	 * An instance of UserMan that manages the user(s).
-	 */
+    /**
+    * An instance of UserMan that manages the user(s).
+    */
     private UserMan users;
     /**
      * A container that contains all JavaSwing components.
@@ -40,7 +40,7 @@ public class MainMenuInterface extends JFrame {
     	users = u;
     	// If the characters have not been read in, read them in.
     	if (users.characters.size() == 0) {
-    		users.read_characters();
+    		users.readCharacters();
     	}
         setTitle("Main Menu");
         setResizable(false);
@@ -52,7 +52,7 @@ public class MainMenuInterface extends JFrame {
         setContentPane(contentPane);
         
         JPanel panel = new JPanel();
-	    panel.setBackground(new Color(222, 184, 135));
+	panel.setBackground(new Color(222, 184, 135));
         contentPane.add(panel, BorderLayout.CENTER);
         panel.setLayout(null);
 
@@ -86,7 +86,7 @@ public class MainMenuInterface extends JFrame {
         	public void actionPerformed(ActionEvent e) {
         		String currentPassword = JOptionPane.showInputDialog(null, "Enter your current password.");
         		String newPassword = JOptionPane.showInputDialog(null, "Enter your new password.");
-        		users.change_password(newPassword, currentPassword);
+        		users.changePassword(newPassword, currentPassword);
         	}
         });
         updatePasswordButton.setFont(new Font("Algerian", Font.PLAIN, 16));
@@ -97,8 +97,8 @@ public class MainMenuInterface extends JFrame {
         JButton logoutButton = new JButton("Logout");
         logoutButton.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
-        		dispose();
-        		users.logged_in = false;
+        		dispose()
+        		users.loggedIn = false;
         		LoginInterface loginInterface = new LoginInterface();
         	}
         });
