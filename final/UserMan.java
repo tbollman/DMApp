@@ -7,6 +7,57 @@ import org.json.simple.parser.*;
 
 public class UserMan 
 {
+  public final String sUserName = "username";
+  public final String sAccountType = "account-type";
+  public final String sPassword = "password";
+  
+  private final String sCharacterName = "Character Name";
+  private final String sLevel = "Level";
+  private final String sCharacterRace = "Character Race";
+  private final String sCharacterClass = "Character Class";
+  private final String sBackground = "Background";
+  private final String sStrengthScore = "Strength Score";
+  private final String sDexterityScore = "Dexterity Score";
+  private final String sConstitutionScore = "Constitution Score";
+  private final String sIntelligenceScore = "Intelligence Score";
+  private final String sWisdomScore = "Wisdom Score";
+  private final String sCharismaScore = "Charisma Score";
+  private final String sArmorClass = "Armor Class";
+  private final String sInitiavite = "Initiative";
+  private final String sSpeed = "Speed";
+  private final String sHitDie = "Hit Die";
+  private final String sHitPoints = "Hit Points";
+  private final String sProficiency = "Proficiency";
+  private final String sStrengthSave = "Strength Save";
+  private final String sDexteritySave = "Dexterity Save";
+  private final String sConstitutionSave = "Constitution Save";
+  private final String sIntelligenceSave = "Intelligence Save";
+  private final String sWidsomSave = "Wisdom Save";
+  private final String sCharismaSave = "Charisma Save";
+  private final String sAcrobatics = "Acrobatics";
+  private final String sAnimalHandling = "Animal Handling";
+  private final String sArcana = "Arcana";
+  private final String sAthletics = "Athletics";
+  private final String sDeception = "Deception";
+  private final String sHistory = "History";
+  private final String sInsight = "Insight";
+  private final String sIntimidation = "Intimidation";
+  private final String sInvestigation = "Investigation";
+  private final String sMedicine = "Medicine";
+  private final String sNature = "Nature";
+  private final String sPerception = "Perception";
+  private final String sPerformance = "Performance";
+  private final String sPersuasion = "Persuasion";
+  private final String sReligion = "Religion";
+  private final String sSleight = "Sleight of Hand";
+  private final String sSurvival = "Survival";
+  private final String sLanguages = "Languages";
+  private final String sFeatures = "Features";
+  private final String sWeapons = "Weapons";
+  private final String sArmor = "Armor";
+  private final String sPotions = "Potions";
+  private final String sSupplies = "Supplies";
+  private final String sSpells = "Spells";
   /**
    * Stores the Users read in from "users.json" for use by various methods
    */
@@ -44,7 +95,6 @@ public class UserMan
    * Keeps track of the CharacterSheet(s) stored in LinkedList<CharacterSheet> ownedCharacters;
    */
   public int ownedCharacterCount = 0;
-
   /**
    * Reads the JSON values stored in "users.json", parses them, creates a new instance of a User, and adds that instance
    * to the LinkedList of Users.
@@ -59,10 +109,10 @@ public class UserMan
           for (Object o : userList) 
           {
             JSONObject user = (JSONObject) o;
-            String username = (String) user.get("username");
-            String account_type = (String) user.get("account-type");
-            String password = (String) user.get("password");
-            users.add(new User(username, account_type, password));
+            String username = (String) user.get(sUserName);
+            String accountType = (String) user.get(sAccountType);
+            String password = (String) user.get(sPassword);
+            users.add(new User(username, accountType, password));
             userCount++;
           }
     }
@@ -83,79 +133,79 @@ public class UserMan
     try 
     {
       JSONArray characterList = (JSONArray)jsonParser.parse(new FileReader("./src/character_sheet.json"));
-      for (Object o : characterList) 
+      for (Object o : characterList)
       {
         JSONObject character = (JSONObject) o;
-        String username = (String) character.get("Username");
-          const String characterName = (String) character.get("Character Name");
-          const int level = Integer.parseInt((String) character.get("Level"));
-          const String characterRace = (String) character.get("Character Race");
-          const String characterClass = (String) character.get("Character Class");
-          const String background = (String) character.get("Background");
-          const int strScore = Integer.parseInt((String) character.get("Strength Score"));
-          const int dexScore = Integer.parseInt((String) character.get("Dexterity Score"));
-          const int conScore = Integer.parseInt((String) character.get("Constitution Score"));
-          const int intScore = Integer.parseInt((String) character.get("Intelligence Score"));
-          const int wisScore = Integer.parseInt((String) character.get("Wisdom Score"));
-          const int chaScore = Integer.parseInt((String) character.get("Charisma Score"));
+          String username = (String) character.get(sUserName);
+          String characterName = (String) character.get(sCharacterName);
+          int level = Integer.parseInt((String) character.get(sLevel));
+          String characterRace = (String) character.get(sCharacterRace);
+          String characterClass = (String) character.get(sCharacter Class);
+          String background = (String) character.get(sBackground);
+          int strScore = Integer.parseInt((String) character.get(sStrengthScores));
+          int dexScore = Integer.parseInt((String) character.get(sDexterityScore));
+          int conScore = Integer.parseInt((String) character.get(sConstitutionScore));
+          int intScore = Integer.parseInt((String) character.get(sIntelligenceScore));
+          int wisScore = Integer.parseInt((String) character.get(sWisdomScore));
+          int chaScore = Integer.parseInt((String) character.get(sCharismaScore));
 
-          const int armorClass = Integer.parseInt((String) character.get("Armor Class"));
-          const int initiative = Integer.parseInt((String) character.get("Initiative"));
-          const int speed = Integer.parseInt((String) character.get("Speed"));
-          const String hitDie = (String) character.get("Hit Die");
-          const int hitPoints = Integer.parseInt((String) character.get("Hit Points"));
-          const int proficiency = Integer.parseInt((String) character.get("Proficiency Bonus"));
+          int armorClass = Integer.parseInt((String) character.get(sArmorClass));
+          int initiative = Integer.parseInt((String) character.get(sInitiative));
+          int speed = Integer.parseInt((String) character.get(sSpeed));
+          String hitDie = (String) character.get(sHitDie);
+          int hitPoints = Integer.parseInt((String) character.get(sHitPoints));
+          int proficiency = Integer.parseInt((String) character.get(sProficiency));
           LinkedList<Integer> skills = new LinkedList<Integer>();
-          const int strengthSave = Integer.parseInt((String) character.get("Strength Save"));
+          int strengthSave = Integer.parseInt((String) character.get(sStrengthSave));
           skills.add(strengthSave);
-          const int dexSave = Integer.parseInt((String) character.get("Dexterity Save"));
+          int dexSave = Integer.parseInt((String) character.get(sDexteritySave));
           skills.add(dexSave);
-          const int constitutionSave = Integer.parseInt((String) character.get("Constitution Save"));
+          int constitutionSave = Integer.parseInt((String) character.get(sConstitutionSave));
           skills.add(constitutionSave);
-          const int intelligenceSave = Integer.parseInt((String) character.get("Intelligence Save"));
+          int intelligenceSave = Integer.parseInt((String) character.get(sIntelligenceSave));
           skills.add(intelligenceSave);
-          const int wisdomSave = Integer.parseInt((String) character.get("Wisdom Save"));
+          int wisdomSave = Integer.parseInt((String) character.get(sWisdomSave));
           skills.add(wisdomSave);
-          const int charismaSave = Integer.parseInt((String) character.get("Charisma Save"));
+          int charismaSave = Integer.parseInt((String) character.get(sCharismaSave));
           skills.add(charismaSave);
-          const int acrobatics = Integer.parseInt((String) character.get("Acrobatics"));
+          int acrobatics = Integer.parseInt((String) character.get(sAcrobatics));
           skills.add(acrobatics);
-          const int animal_handling = Integer.parseInt((String) character.get("Animal Handling"));
+          int animal_handling = Integer.parseInt((String) character.get(sAnimalHandling));
           skills.add(animal_handling);
-          const int arcana = Integer.parseInt((String) character.get("Arcana"));
+          int arcana = Integer.parseInt((String) character.get(sArcana));
           skills.add(arcana);
-          const int athletics = Integer.parseInt((String) character.get("Athletics"));
+          int athletics = Integer.parseInt((String) character.get(sAthletics));
           skills.add(athletics);
-          const int deception = Integer.parseInt((String) character.get("Deception"));
+          int deception = Integer.parseInt((String) character.get(sDeception));
           skills.add(deception);
-          const int history = Integer.parseInt((String) character.get("History"));
+          int history = Integer.parseInt((String) character.get(sHistory));
           skills.add(history);
-          const int insight = Integer.parseInt((String) character.get("Insight"));
+          int insight = Integer.parseInt((String) character.get(sInsight));
           skills.add(insight);
-          const int intimidation = Integer.parseInt((String) character.get("Intimidation"));
+          int intimidation = Integer.parseInt((String) character.get(sIntimidation));
           skills.add(intimidation);
-          const int investigation = Integer.parseInt((String) character.get("Investigation"));
+          int investigation = Integer.parseInt((String) character.get(sInvestigation));
           skills.add(investigation);
-          const int medicine = Integer.parseInt((String) character.get("Medicine"));
+          int medicine = Integer.parseInt((String) character.get(sMedicine));
           skills.add(medicine);
-          const int nature = Integer.parseInt((String) character.get("Nature"));
+          int nature = Integer.parseInt((String) character.get(sNature));
           skills.add(nature);
-          const int perception = Integer.parseInt((String) character.get("Perception"));
+          int perception = Integer.parseInt((String) character.get(sPerception));
           skills.add(perception);
-          const int performance = Integer.parseInt((String) character.get("Performance"));
+          int performance = Integer.parseInt((String) character.get(sPerformance));
           skills.add(performance);
-          const int persuasion = Integer.parseInt((String) character.get("Persuasion"));
+          int persuasion = Integer.parseInt((String) character.get(sPersuasion));
           skills.add(persuasion);
-          const int religion = Integer.parseInt((String) character.get("Religion"));
+          int religion = Integer.parseInt((String) character.get(sReligion));
           skills.add(religion);
-          const int sleightOfHand = Integer.parseInt((String) character.get("Sleight of Hand"));
+          int sleightOfHand = Integer.parseInt((String) character.get(sSleight));
           skills.add(sleightOfHand);
-          const int stealth = Integer.parseInt((String) character.get("Stealth"));
+          int stealth = Integer.parseInt((String) character.get(sStealth));
           skills.add(stealth);
-          const int survival = Integer.parseInt((String) character.get("Survival"));
+          int survival = Integer.parseInt((String) character.get(sSurvival));
           skills.add(survival);
           LinkedList<String> languages = new LinkedList<String>();
-          const String languagesS = (String) character.get("Languages");
+          String languagesS = (String) character.get(sLanguages);
           storeValues(languagesS, languages);
           LinkedList<String> features = new LinkedList<String>();
           LinkedList<String> weapons = new LinkedList<String>();
@@ -163,17 +213,17 @@ public class UserMan
           LinkedList<String> potions = new LinkedList<String>();
           LinkedList<String> supplies = new LinkedList<String>();
           LinkedList<String> spells = new LinkedList<String>();
-          const String featuresS = (String) character.get("Features");
+          String featuresS = (String) character.get(sFeatures);
           storeValues(featuresS, features);
-          const String weaponsS = (String) character.get("Weapons");
+          String weaponsS = (String) character.get(sWeapons);
           storeValues(weaponsS, weapons);
-          const String armorS = (String) character.get("Armor");
+          String armorS = (String) character.get(sArmor);
           storeValues(armorS, armor);
-          const String potionsS = (String) character.get("Potions");
+          String potionsS = (String) character.get(sPotions);
           storeValues(potionsS, potions);
-          const String suppliesS = (String) character.get("Supplies");
+          String suppliesS = (String) character.get(sSupplies);
           storeValues(suppliesS, supplies);
-          const String spellsS = (String) character.get("Spells");
+          String spellsS = (String) character.get(sSpells);
           storeValues(spellsS, spells);
 
           characters.add(new CharacterSheet(username,characterName,level, characterRace,characterClass,background,strScore,dexScore,conScore,intScore,wisScore,chaScore,armorClass,initiative,speed,hitDie,hitPoints,proficiency,skills,languages,features,weapons,armor,potions,supplies,spells));
@@ -226,9 +276,9 @@ public class UserMan
     for (int i = 0; i < userCount; i++) 
     {
       JSONObject userDetails = new JSONObject();
-      userDetails.put("username", users.get(i).getUserName());
-      userDetails.put("account-type", users.get(i).getAccountType());
-      userDetails.put("password", users.get(i).getPassword());
+      userDetails.put(sUserName, users.get(i).getUserName());
+      userDetails.put(sAccountType, users.get(i).getAccountType());
+      userDetails.put(sPassword, users.get(i).getPassword());
 
       userList.add(userDetails);
     }
