@@ -29,6 +29,7 @@ public class CharacterSheet {
     private int proficiencyBonus;
 
     private static final int skillNum = 24;
+    private static final int defaultAbility = 10;
 
     private String[] skillNames = {"Strength Save", "Dexterity Save", "Constitution Save",
                                     "Intelligence Save", "Wisdom Save", "Charisma Save",
@@ -60,12 +61,12 @@ public class CharacterSheet {
         speed = 30;
         proficiencyBonus = 2;
 
-        strength.setAbilityScore(10);
-        dexterity.setAbilityScore(10);
-        constitution.setAbilityScore(10);
-        intelligence.setAbilityScore(10);
-        wisdom.setAbilityScore(10);
-        charisma.setAbilityScore(10);
+        strength.setAbilityScore(defaultAbility);
+        dexterity.setAbilityScore(defaultAbility);
+        constitution.setAbilityScore(defaultAbility);
+        intelligence.setAbilityScore(defaultAbility);
+        wisdom.setAbilityScore(defaultAbility);
+        charisma.setAbilityScore(defaultAbility);
     }
 
     /**
